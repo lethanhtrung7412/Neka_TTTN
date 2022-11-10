@@ -50,38 +50,34 @@
 <div class="products">
     <div class="container">
         <h2>@ViewBag.NamePage</h2>
-        <div class="col-md-9">
+        <div class="row">
             @if (products.Count > 0)
             {
                 int count = 1;
-            loop:
-                <div class="content-top1">
-                    @for (int i = count - 1; i < products.Count; i++)
+                for (int i = count - 1; i < products.Count; i++)
                     {
-                        <div class="col-md-4 col-md4">
-                            <div class="col-md1 simpleCart_shelfItem">
-                                <a href="/Product/Details/@products[i].ID">
-                                    <img class="img-responsive" src="~/Content/images/@products[i].Image1" alt="" style="height:250px;width:200px" />
-                                </a>
-                                <h3><a href="/Product/Details/@products[i].ID">@products[i].Name</a></h3>
-                                <div class="price">
-                                    <h5 class="item_price">@products[i].Price.Value.ToString("#,##")₫</h5>
-                                    <p class="item_price">Đã bán: @products[i].PurchasedCount (Còn lại @products[i].Quantity)</p>
-                                    <a href="#" class="item_add" data-id="@products[i].ID">Chọn mua</a>
+                        <div class="col-lg-3 col-sm-6 mix all">
+                            <div class="single-product-item">
+                                <figure>
+                                    <a href="/Product/Details/@products[i].ID"><img src="~/Content/images/@products[i].Image1" alt=""></a>
+                                    <div class="p-status">new</div>
+                                </figure>
+                                <div class="product-text">
+                                    <h6>@products[i].Name</h6>
+                                    <p>Đã bán: @products[i].PurchasedCount (Còn lại @products[i].Quantity)</p>
+                                    <p>@products[i].Price.Value.ToString("#,##")₫ -  <a href="#" class="item_add" data-id="@products[i].ID"><img src="~/Content/images/cart.png" alt="" /></a></p>
                                     <div class="clearfix"> </div>
                                 </div>
+                               
                             </div>
+                            <div class="clearfix"> </div>
+
                         </div>
-                        if (count % 3 == 0)
-                        {
-                            @Html.Raw("</div>");
-                            count += 1;
-                            goto loop;
-                        }
-                        count += 1;
+                        
                     }
-                    <div class="clearfix"> </div>
-                </div>
+                  
+                    
+               
             }
             else
             {

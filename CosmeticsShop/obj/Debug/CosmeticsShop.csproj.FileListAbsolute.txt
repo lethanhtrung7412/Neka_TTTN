@@ -325,3 +325,6 @@ D:\HOC TAP\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.csproj.CoreCompi
 D:\HOC TAP\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.csproj.CopyComplete
 D:\HOC TAP\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.dll
 D:\HOC TAP\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.pdb
+D:\Trung\HK1 2022-2023\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.csproj.AssemblyReference.cache
+D:\Trung\HK1 2022-2023\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.dll
+D:\Trung\HK1 2022-2023\TTTN\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.pdb

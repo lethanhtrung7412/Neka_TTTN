@@ -7,7 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@ViewBag.Title</title>
-
+    @*<link href="~/Content/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />*@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- start menu -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- slide -->
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
@@ -120,11 +130,10 @@
     </div>
     <!-- Header Info End -->
 
-
     @RenderBody()
 
 
-    <div class="row">
+    <div class="row1">
         <div class="chatbox chatbox22 chatbox--tray">
             <div class="chatbox__title">
                 <h5><a href="javascript:void()">Chat với chúng tôi</a></h5>
@@ -319,6 +328,8 @@
         });
     </script>
     <!-- Js Plugins -->
+    <link href="~/Content/Webapp/css/chatbox.css" rel="stylesheet" />
+    <script src="~/Content/js/chatbox.js"></script>
     <script src="~/Content/Webapp/js/jquery-3.3.1.min.js"></script>
     <script src="~/Content/Webapp/js/bootstrap.min.js"></script>
     <script src="~/Content/Webapp/js/jquery.magnific-popup.min.js"></script>
@@ -330,7 +341,6 @@
     <script src="~/Content/js/notify.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
     <script src="~/signalr/hubs" type="text/javascript"></script>
-    <link href="~/Content/css/chatbox.css" rel="stylesheet" />
-    <script src="~/Content/js/chatbox.js"></script>
+
 </body>
 </html>

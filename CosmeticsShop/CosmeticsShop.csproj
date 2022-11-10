@@ -3839,10 +3839,13 @@
     <Content Include="Content\js\responsiveslides.min.js" />
     <Content Include="Content\js\wow.min.js" />
     <Content Include="Content\Webapp\css\bootstrap.min.css" />
+    <Content Include="Content\Webapp\css\chatbox.css" />
+    <Content Include="Content\Webapp\css\flexslider.css" />
     <Content Include="Content\Webapp\css\font-awesome.min.css" />
     <Content Include="Content\Webapp\css\magnific-popup.css" />
     <Content Include="Content\Webapp\css\nice-select.css" />
     <Content Include="Content\Webapp\css\owl.carousel.min.css" />
+    <Content Include="Content\Webapp\css\popuo-box.css" />
     <Content Include="Content\Webapp\css\slicknav.min.css" />
     <Content Include="Content\Webapp\css\style.css" />
     <Content Include="Content\Webapp\img\add.jpg" />
@@ -3890,10 +3893,12 @@
     <Content Include="Content\Webapp\img\slider-3.jpg" />
     <Content Include="Content\Webapp\js\bootstrap.min.js" />
     <Content Include="Content\Webapp\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\Webapp\js\jquery.flexslider.js" />
     <Content Include="Content\Webapp\js\jquery.magnific-popup.min.js" />
     <Content Include="Content\Webapp\js\jquery.nice-select.min.js" />
     <Content Include="Content\Webapp\js\jquery.slicknav.js" />
     <Content Include="Content\Webapp\js\main.js" />
+    <Content Include="Content\Webapp\js\memenu.js" />
     <Content Include="Content\Webapp\js\mixitup.min.js" />
     <Content Include="Content\Webapp\js\owl.carousel.min.js" />
     <Content Include="favicon.ico" />
