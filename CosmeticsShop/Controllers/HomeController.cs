@@ -16,6 +16,7 @@ namespace CosmeticsShop.Controllers
             {
                 Session["Cart"] = new List<ItemCart>();
             }
+            ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
             ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
             return View();
         }
