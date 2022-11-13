@@ -4,64 +4,45 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-
-<section class="page-add pt-0 mb-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="page-breadcrumb">
-
-                    <a href="/">Trang chủ</a>
-
-                    <a class="active" href="#">Đăng nhập</a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Form sign in -->
 <section class="vh-100 bg-image pt-1"
          style="background-image: url(@Url.Content("~/Content/Webapp/img/slider-2.jpg"));">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="mask d-flex align-items-center h-75 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Đăng ký tài khoảnt</h2>
+                            <h2 class="text-uppercase text-center mb-5">Đăng nhập</h2>
 
-                            @using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
-                            {
-
-                                <h3>@ViewBag.Message</h3>
-
-                                <div class="form-outline mb-4">
-                                    <input type="email" placeholder="Email" class="form-control form-control-lg" required />
+                            <form action="/Home/SignIn" method="post" class="pt-3">
+                                <div class="form-group">
+                                    <input type="text" name="Email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="password" placeholder="Mật khẩu" name="Password" id="Password" required class="form-control form-control-lg" />
-
+                                <div class="form-group">
+                                    <input type="password" name="Password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                                 </div>
-
-                                
-                                
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                                        Đăng nhập
+                                <div class="mt-3">
+                                    <input class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" value="Đăng nhập">
+                                </div>
+                                <div class="my-2 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input">
+                                            Nhớ mật khẩu
+                                        </label>
+                                    </div>
+                                    <a href="#" class="auth-link text-black">Quên mật khẩu?</a>
+                                </div>
+                                <div class="mb-2">
+                                    <button type="button" class="btn btn-block btn-facebook auth-form-btn">
+                                        <i class="typcn typcn-social-facebook mr-2"></i>Connect using facebook
                                     </button>
                                 </div>
-
-
-                            }
-                            <p class="text-center text-muted mt-5 mb-0">
-                                Chưa có tài khoản <a href="/Home/SignUp"
-                                                   class="fw-bold text-body"><u>Đăng ký ngay</u></a>
-                            </p>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Bạn chưa có tài khoản? <a href="/Home/SignUp" class="text-primary">Đăng ký</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -69,27 +50,4 @@
         </div>
     </div>
 </section>
-
-@*<div class="account">
-    <div class="container">
-        <h2 style="color: #1E1E1E">Đăng nhập</h2>
-        <div class="account_grid">
-            <div class="col-md-6 login-right">
-                <h4>@ViewBag.Message</h4>
-                <form action="/Home/SignIn" method="post">
-
-
-
-
-                </form>
-            </div>
-            <div class="col-md-6 login-left">
-                <h4 style="color: #1E1E1E">BẠN CHƯA CÓ TÀI KHOẢN</h4>
-                <p style="color: #1E1E1E">Bằng cách tạo tài khoản với cửa hàng của chúng tôi, bạn sẽ có thể thực hiện quy trình đặt hàng, xem và theo dõi đơn đặt hàng trong tài khoản của bạn và hơn thế nữa.</p>
-                <a class="acount-btn" href="/Home/SignUp">Tạo ngay</a>
-
-
-           
-
-</div>*@
 

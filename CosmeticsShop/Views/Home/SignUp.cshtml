@@ -4,17 +4,9 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<div class="breadcrumbs">
-    <div class="container">
-        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-            <li class="active">Đăng ký</li>
-        </ol>
-    </div>
-</div>
-<section class="vh-100 bg-image"
+<section class="vh-100 bg-image pt-3"
          style="background-image: url(@Url.Content("~/Content/Webapp/img/slider-2.jpg"));">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="mask d-flex align-items-center h-75 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -24,47 +16,39 @@
 
                             @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
                             {
-
-                                <h3>@ViewBag.Message</h3>
-                                <div class="form-outline mb-4">
-                                    <input type="text" placeholder="Tên của bạn" name="Name" required class="form-control form-control-lg" />
-
+                                <div class="mb-3">
+                                    <input type="text" name="Name" required class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="email" placeholder="Email" class="form-control form-control-lg" required />
+                                <div class="mb-3">
+                                    <input type="text" name="Email" required class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="password" placeholder="Mật khẩu" name="Password" id="Password" required class="form-control form-control-lg" />
-
+                                <div class="mb-3">
+                                    <input type="password" name="Password" required class="form-control" placeholder="Password" aria-label="Password" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="password" placeholder="Nhập lại mật khẩu" name="PasswordMatch" required oninput="check(this)" class="form-control form-control-lg" />
+                                <div class="mb-3">
+                                    <input type="password" name="PasswordMatch" required oninput="check(this)" class="form-control" placeholder="ConfirmPassword" aria-label="ConfirmPassword" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="text" placeholder="Số điện thoại" name="Phone" required class="form-control form-control-lg" />
+                                <div class="mb-3">
+                                    <input type="text" name="Phone" required class="form-control" placeholder="Phone" aria-label="Phone" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="form-outline mb-4">
-                                    <textarea placeholder="Địa chỉ" name="Address" required class="form-control form-control-lg"></textarea>
+                                <div class="mb-3">
+                                    <input type="text" name="Address" required class="form-control" placeholder="Address" aria-label="Address" aria-describedby="email-addon">
                                 </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                                        Đăng ký
-                                    </button>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input">
+                                            I agree to all Terms & Conditions
+                                        </label>
+                                    </div>
                                 </div>
-
-
+                                <div class="mt-3">
+                                    <input class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" value="Đăng ký">
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Already have an account? <a href="login.html" class="text-primary">Login</a>
+                                </div>
                             }
-                            <p class="text-center text-muted mt-5 mb-0">
-                                Đã có tài khoản <a href="/Home/SignIn"
-                                                   class="fw-bold text-body"><u>Đăng nhập</u></a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -72,11 +56,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
 
 <script>
     function check(input) {

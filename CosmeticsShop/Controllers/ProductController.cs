@@ -37,5 +37,11 @@ namespace CosmeticsShop.Controllers
             Product product = db.Products.Find(ID);
             return View(product);
         }
+        public ActionResult RemoveProduct(int ID)
+        {
+            Product product = db.Products.Find(ID);
+            db.Products.Remove(product);
+            return View(product);
+        }
     }
 }

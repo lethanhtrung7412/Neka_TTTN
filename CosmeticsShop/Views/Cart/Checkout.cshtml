@@ -64,7 +64,7 @@
                     else if (response.status == false) {
                         $.notify("Số lượng không đủ!", "error");
                         setTimeout(function () {
-                                window.location.reload();
+                            window.location.reload();
                         }, 1500);
                     } else {
                         $.notify("Lỗi!", "error");
@@ -77,14 +77,22 @@
         })
     });
 </script>
-<div class="breadcrumbs">
+<section class="page-add">
     <div class="container">
-        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-            <li class="active">Giỏ hàng</li>
-        </ol>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-breadcrumb">
+                    <h2>Giỏ hàng<span>.</span></h2>
+                    <a href="#">Trang chủ</a>
+
+                    <a class="active" href="#">Giỏ hàng</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            </div>
+        </div>
     </div>
-</div>
+</section>
 <!---->
 <div class="cart-page">
     <div class="container">
@@ -118,7 +126,7 @@
                                         <input type="number" class="qty" data-id="@item.ProductID" value="@item.Quantity" min="0">
                                     </div>
                                 </td>
-                                <td class="total"id=" @item.ProductID">@((item.ProductPrice * item.Quantity).ToString("#,##"))₫</td>
+                                <td class="total" id=" @item.ProductID">@((item.ProductPrice * item.Quantity).ToString("#,##"))₫</td>
                                 <td class="product-close">x</td>
                             </tr>
                         </tbody>
@@ -138,84 +146,45 @@
                         </div>
                     </div>
                 </div>
+                <div class="cart-btn">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Enter cupone code">
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
+                            <div class="site-btn clear-btn">
+                               
+                                <a href="/Cart/RemoveCart"> Clear Cart</a>
+                            </div>
+                            <div class="site-btn update-btn">
+                                <a href="/Cart/Test">Update Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="payment-method">
+                            <h3>Phương thức thanh toán:</h3>
+                            <form name="payment" action="/Cart/AddOrder" method="post">
+                                <select name="payment">
+                                    <option value="cod">Tiền mặt (COD)</option>
+                                    <option value="paypal">Thanh toán với Paypal</option>
+                                    <option value="momo">Thanh toán với Momo</option>
+                                </select> <br />
+                                <button type="submit">Place your order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
             }
             else
             {
                 <h3> Giỏ hàng hiện đang rỗng</h3>
-
             }
-
         </div>
-        <div class="cart-btn">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="coupon-input">
-                        <input type="text" placeholder="Enter cupone code">
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
-                    <div class="site-btn clear-btn">Clear Cart</div>
-                    <div class="site-btn update-btn">Update Cart</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
-<div class="container">
-    <div class="check-out">
-        <h2>Giỏ hàng</h2>
-        @if (itemCarts != null && itemCarts.Count > 0)
-        {
-            <table>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Đơn giá</th>
-                    <th>Thành tiền</th>
-                </tr>
-                @foreach (var item in itemCarts)
-                {
-                    <tr>
-                        <td class="ring-in">
-                            <a href="/Product/Details/@item.ProductID" class="at-in"><img src="~/Content/images/@item.ProductImage" class="img-responsive" alt=""></a>
-                            <div class="sed">
-                                <h5>@item.ProductName</h5>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </td>
-                        <td class="check"><input type="number" class="qty" data-id="@item.ProductID" value="@item.Quantity" style="width:100px" min="0"></td>
-                        <td>@item.ProductPrice.ToString("#,##")₫</td>
-                        <td id="@item.ProductID">@((item.ProductPrice * item.Quantity).ToString("#,##"))₫</td>
-                    </tr>
-                }
-                <tr>
-                    <th class="total-cart">Tổng: @itemCarts.Sum(x => x.Quantity * x.ProductPrice).ToString("#,##")₫</th>
-                </tr>
-            </table>
-            if (Session["User"] == null)
-            {
-                <a href="/Home/SignIn" class=" to-buy">ĐĂNG NHẬP ĐỂ ĐẶT HÀNG</a>
-            }
-            else
-            {
-                <p>Phương thức thanh toán:</p>
-                <form action="/Cart/AddOrder" method="post">
-                    <select name="payment" >
-                        <option value="cod">Tiền mặt (COD)</option>
-                        <option value="paypal">Thanh toán với Paypal</option>
-                        <option value="momo">Thanh toán với Momo</option>
-                    </select> <br />
-                    <button class="to-buy btn btn-warning">TIẾN HÀNH ĐẶT HÀNG</button>
-                </form>
-            }
-        }
-        else
-        {
-            <h3> Giỏ hàng hiện đang rỗng</h3>
-            <div class="clearfix">
-            </div>
-        }
     </div>
 </div>

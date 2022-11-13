@@ -170,5 +170,10 @@ namespace CosmeticsShop.Controllers
             ViewBag.Message = mess;
             return View();
         }
+        public void RemoveCart(int ID)
+        {
+            List<ItemCart> listCart = Session["Cart"] as List<ItemCart>;
+            listCart.Clear();
+        }
     }
 }

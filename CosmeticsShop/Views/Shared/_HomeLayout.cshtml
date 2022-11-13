@@ -53,17 +53,20 @@
                 </div>
                 <div class="header-right">
                     <img src="~/Content/Webapp/img/icons/search.png" alt="" class="search-trigger">
+                    <a href="/Test/Index">
+                        <img src="~/Content/Webapp/img/icons/man.png" alt="">
+                    </a>
                     <a href="/Cart/Checkout">
                         <div class="total">
                             @{
                                 List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
                                 if (itemCarts != null && itemCarts.Count > 0)
                                 {
-                                    <span class="simpleCart_total">(@itemCarts.Sum(x => x.Quantity))</span>
+                                    <span class="simpleCart_total">@itemCarts.Sum(x => x.ProductPrice * x.Quantity).ToString("#,##")₫ (@itemCarts.Sum(x => x.Quantity))</span>
                                 }
                                 else
                                 {
-                                    <span class="simpleCart_total">(0)</span>
+                                    <span class="simpleCart_total">0₫ (0)</span>
                                 }
                             }
                         </div>
@@ -79,8 +82,8 @@
                         {
                             <input type="text" id="UserID" value="@user.ID" hidden />
 
-                                    string[] token = user.Name.Split(' ');
-                                    string name = token[token.Length - 1];
+                            string[] token = user.Name.Split(' ');
+                            string name = token[token.Length - 1];
                             <a href="/User/CheckoutOrder">@name</a>
 
                             <a href="/Home/SignOut" class="in">Đăng xuất</a>
@@ -89,23 +92,12 @@
                         }
                         else
                         {
-                            <a href="/Home/SignUp" >Đăng ký</a>
+                            <a href="/Home/SignUp">Đăng ký</a>
                             <a href="/Home/SignIn" class="in">Đăng nhập</a>
                         }
                     }
 
                 </div>
-                @*<div class="user-access">
-            @if (user != null)
-            {
-                <a href="/Home/SignOut">Đăng xuất</a>
-            }
-            else
-            {
-                <a href="/Home/SignUp">Đăng ký</a>
-                <a href="/Home/SignIn">Đăng nhập</a>
-            }
-        </div>*@
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
