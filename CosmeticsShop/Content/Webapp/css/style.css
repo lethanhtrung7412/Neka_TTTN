@@ -324,7 +324,7 @@ ol {
 }
 
 .inner-header .user-access a.in {
-	color: #838383;
+	color: #1E1e1e;
 	margin-left: 15px;
 	position: relative;
 }
@@ -1464,8 +1464,8 @@ ol {
 }
 
 .cart-table table tbody td {
-	margin-top: 29px;
-	padding-top: 29px;
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
 .cart-table table .product-h {
