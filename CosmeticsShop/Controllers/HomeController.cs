@@ -40,7 +40,8 @@ namespace CosmeticsShop.Controllers
                 user.Captcha = new Random().Next(100000, 999999).ToString();
                 user.IsConfirm = false;
                 user.UserTypeID = 2;
-                user.Address = "pr.jpg";
+                user.Address = "";
+                user.Avatar = "avatar.jpg";
                 userAdded = db.Users.Add(user);
                 db.SaveChanges();
             }

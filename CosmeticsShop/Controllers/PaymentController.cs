@@ -257,12 +257,7 @@ namespace CosmeticsShop.Controllers
             }
             else
             {
-                Session.Remove("Cart");
-                //update paid
-                Models.Order order = db.Orders.Find(Convert.ToInt32(Session["OrderId"]));
-                order.IsPaid = true;
-                db.SaveChanges();
-                Session.Remove("OrderID");
+                
                 ViewBag.message = "Thanh toán thành công";
             }
             return View();
@@ -299,7 +294,12 @@ namespace CosmeticsShop.Controllers
             }
             else
             {
-                //Success
+                Session.Remove("Cart");
+                //update paid
+                Models.Order order = db.Orders.Find(Convert.ToInt32(Session["OrderId"]));
+                order.IsPaid = true;
+                db.SaveChanges();
+                Session.Remove("OrderID");
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }

@@ -54,7 +54,7 @@
                                 if (user != null)
                                 {
                                     <div class="image">
-                                        <img src="~/Content/images/@user.Avatar" class="img-circle elevation-2" alt="User Image">
+                                        <img style="width: 40px; height:40px" src="~/Content/images/@user.Avatar" class="img-circle elevation-2" alt="User Image">
                                     </div>
                                     <div class="info">
                                         <a href="" class="d-block">@user.UserType.Name</a>
@@ -250,6 +250,7 @@
                         getLastData();
                         $('#btn-input').val("");
                         $(".chatbox__body").animate({ scrollTop: 2000000 });
+                        console.log("yes");
                     } else {
                         alert("Có lỗi xảy ra");
                         return;

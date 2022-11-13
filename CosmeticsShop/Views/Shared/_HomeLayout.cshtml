@@ -114,7 +114,7 @@
         </div>
     </header>
     <!-- Header Info Begin -->
-    <div class="header-info">
+    <div class="header-info w-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
@@ -148,8 +148,8 @@
             <div class="chatbox__title">
                 <h5><a href="javascript:void()">Chat với chúng tôi</a></h5>
                 <!--<button class="chatbox__title__tray">
-                    <span></span>
-                </button>-->
+            <span></span>
+        </button>-->
                 <button class="chatbox__title__close">
                     <span>
                         <svg viewBox="0 0 12 12" width="12px" height="12px">
@@ -171,15 +171,17 @@
 
                 </div>
                 <div class="panel-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" required class="form-control input-sm chat_set_height" placeholder="Soạn tin nhắn..." tabindex="0" dir="ltr" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" contenteditable="true" />
-                        <span class="input-group-btn">
-                            <button class="btn bt_bg btn-sm" id="btn-chat">
-                                Gửi
-                            </button>
-                            <img src="~/Content/images/loading.gif" class="loading-send btn bt_bg btn-sm" style="display:none;" />
-                        </span>
-                    </div>
+                    <form id="form-chat">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" required class="form-control input-sm chat_set_height" placeholder="Soạn tin nhắn..." tabindex="0" dir="ltr" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" contenteditable="true" />
+                            <span style="background-color:cornflowerblue" class="input-group-btn d-flex align-items-center justify-content-center">
+                                <button type="submit" class="btn bt_bg btn-sm" id="btn-chat">
+                                    Gửi
+                                </button>
+                                <img src="~/Content/images/loading.gif" class="loading-send btn bt_bg btn-sm" style="display:none;" />
+                            </span>
+                        </div>
+                    </form>
                 </div>
             }
         </div>
@@ -308,7 +310,8 @@
                     }
                 })
             }
-            $('#btn-chat').click(function send() {
+            $('#form-chat').submit(function send(e) {
+                e.preventDefault();
                 var fromId = $('#UserID').val();
                 var content = $('#btn-input').val();
                 $.ajax({
