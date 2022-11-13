@@ -3869,6 +3869,7 @@
     <Content Include="Content\Webapp\img\logos\logo-3.png" />
     <Content Include="Content\Webapp\img\logos\logo-4.png" />
     <Content Include="Content\Webapp\img\logos\logo-5.png" />
+    <Content Include="Content\Webapp\img\logos\logo.png" />
     <Content Include="Content\Webapp\img\lookbok.jpg" />
     <Content Include="Content\Webapp\img\mastercard.jpg" />
     <Content Include="Content\Webapp\img\paypal.jpg" />

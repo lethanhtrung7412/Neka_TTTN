@@ -11,7 +11,67 @@
         </ol>
     </div>
 </div>
-<div class="container">
+<section class="vh-100 bg-image"
+         style="background-image: url(@Url.Content("~/Content/Webapp/img/slider-2.jpg"));">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Đăng ký tài khoảnt</h2>
+
+                            @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+                            {
+
+                                <h3>@ViewBag.Message</h3>
+                                <div class="form-outline mb-4">
+                                    <input type="text" placeholder="Tên của bạn" name="Name" required class="form-control form-control-lg" />
+
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="email" placeholder="Email" class="form-control form-control-lg" required />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" placeholder="Mật khẩu" name="Password" id="Password" required class="form-control form-control-lg" />
+
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" placeholder="Nhập lại mật khẩu" name="PasswordMatch" required oninput="check(this)" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" placeholder="Số điện thoại" name="Phone" required class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <textarea placeholder="Địa chỉ" name="Address" required class="form-control form-control-lg"></textarea>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                                        Đăng ký
+                                    </button>
+                                </div>
+
+
+                            }
+                            <p class="text-center text-muted mt-5 mb-0">
+                                Đã có tài khoản <a href="/Home/SignIn"
+                                                   class="fw-bold text-body"><u>Đăng nhập</u></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<div class="container">
     <div class="register">
         <h2>Đăng ký</h2>
         @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
@@ -47,7 +107,7 @@
             </div>
         }
     </div>
-</div>
+</div>*@
 
 <script>
     function check(input) {
