@@ -37,8 +37,8 @@ namespace CosmeticsShop.Controllers
             Models.User userAdded = new Models.User();
             try
             {
-                user.Captcha = new Random().Next(100000, 999999).ToString();
-                user.IsConfirm = false;
+                //user.Captcha = new Random().Next(100000, 999999).ToString();
+                //user.IsConfirm = false;
                 user.UserTypeID = 2;
                 user.Address = "";
                 user.Avatar = "avatar.jpg";
@@ -50,7 +50,9 @@ namespace CosmeticsShop.Controllers
                 ViewBag.Message = "Đăng ký thất bại";
                 return View();
             }
-            return RedirectToAction("ConfirmEmail", "User", new { ID = userAdded.ID });
+            ViewBag.Message = "Đăng ký thành công";
+            return View();
+            //return RedirectToAction("ConfirmEmail", "User", new { ID = userAdded.ID });
         }
         public ActionResult SignIn()
         {
@@ -63,6 +65,10 @@ namespace CosmeticsShop.Controllers
             if (check != null)
             {
                 Session["User"] = check;
+                if (check.UserTypeID == 1)
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Message = "Email hoặc mật khẩu không đúng";

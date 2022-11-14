@@ -37,12 +37,6 @@ namespace CosmeticsShop.Controllers
             Product product = db.Products.Find(ID);
             return View(product);
         }
-
-        public ActionResult Test(int ID)
-        {
-            Product product = db.Products.Find(ID);
-            return View(product);
-        }
         public ActionResult RemoveProduct(int ID)
         {
             Product product = db.Products.Find(ID);

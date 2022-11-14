@@ -48,7 +48,7 @@
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
-                        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="user-panel d-flex">
                             @{
                                 CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
                                 if (user != null)
@@ -62,13 +62,13 @@
                                 }
                             }
                         </div>
-                        <div class="toggler">
-                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        <div class="toggler d-xl-none d-block">
+                            <a href="#" class="sidebar-hide"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="sidebar-menu">
-                    <ul class="menu">
+                    <ul style="margin-top:0 !important" class="menu">
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item active ">
@@ -80,17 +80,25 @@
 
                         <li class="sidebar-title"> App </li>
 
-                        <li class="sidebar-item">
-                            <a href="/ProductManage/Index" class='sidebar-link'>
-                                <i class="bi bi-hexagon-fill"></i>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
                                 <span>Sản phẩm</span>
                             </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="/ProductManage/Index">Sản phẩm</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="/CategoryManage/Index">Danh mục</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="/CategoryManage/Index" class='sidebar-link'>
-                                <i class="bi bi-pen-fill"></i>
-                                <span>Danh mục</span>
+                            <a href="/SlideManage/Index" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Tin tức</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -106,14 +114,24 @@
                                 <span>Chat</span>
                             </a>
                         </li>
-                        <li class="sidebar-title">Authentication</li>
+                        <li class="sidebar-title">Statistic</li>
 
-
-                        <li class="sidebar-item">
-                            <a href="@Url.Action("Index","Statistic",new { from=DateTime.Now,to=DateTime.Now})" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
                                 <span>Thống kê</span>
                             </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="@Url.Action("Index","Statistic",new { from=DateTime.Now,to=DateTime.Now})">Đặt hàng</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="/Statistic/Product">Sản phẩm</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="@Url.Action("Index","Statistic",new { from=DateTime.Now,to=DateTime.Now})">Doanh thu</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a href="/Home/SignOut" class='sidebar-link'>
@@ -155,7 +173,7 @@
 
 
 
-
+    <script src="~/Content/js/main.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>$.widget.bridge('uibutton', $.ui.button)</script>
     <!-- Bootstrap 4 -->

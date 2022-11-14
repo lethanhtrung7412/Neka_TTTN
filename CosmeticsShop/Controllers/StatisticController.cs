@@ -48,6 +48,45 @@ namespace CosmeticsShop.Controllers
             ViewBag.to = to;
             return View(orders);
         }
+        public ActionResult Product()
+        {
+            if (CheckRole("Admin"))
+            {
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            List<Product> products = db.Products.Where(x => x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
+            return View(products);
+        }
+        public ActionResult SalesRevenue(DateTime from, DateTime to)
+        {
+            if (CheckRole("Admin"))
+            {
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            List<OrderDetail> orderDetails = db.OrderDetails.Where(x => DbFunctions.TruncateTime(x.Order.DateShip) >= from.Date && DbFunctions.TruncateTime(x.Order.DateShip) <= to.Date).ToList();
+
+            List<int> OrderIDs = new List<int>();
+            foreach (var item in orderDetails)
+            {
+                OrderIDs.Add(item.OrderID.Value);
+            }
+            List<Order> orders = new List<Order>();
+            if (OrderIDs.Count() > 0)
+            {
+                orders = db.Orders.Where(x => x.Status == "Complete" && OrderIDs.Contains(x.ID)).ToList();
+            }
+            ViewBag.from = from;
+            ViewBag.to = to;
+            return View(orders);
+        }
         [HttpGet]
         public void DownloadExcelStatisticOrder(DateTime from, DateTime to)
         {
@@ -97,6 +136,41 @@ namespace CosmeticsShop.Controllers
             Response.Clear();
             Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             Response.AddHeader("content-disposition", "attachment: filename=" + "Đơn đặt hàng.xlsx");
+            Response.BinaryWrite(pck.GetAsByteArray());
+            Response.End();
+        }
+
+        [HttpGet]
+        public void DownloadExcelStatisticProduct()
+        {
+            User user = Session["User"] as User;
+            List<Product> products = db.Products.Where(x => x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
+            ExcelPackage pck = new ExcelPackage();
+            ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Report");
+
+            ws.Cells["A2"].Value = "Export by";
+            ws.Cells["B2"].Value = user.Name;
+
+            ws.Cells["A3"].Value = "Date";
+            ws.Cells["B3"].Value = DateTime.Now.ToShortDateString();
+
+            ws.Cells["A6"].Value = "Product ID";
+            ws.Cells["B6"].Value = "Name";
+            ws.Cells["C6"].Value = "Purchased Count";
+
+            int rowStart = 7;
+            foreach (var item in products)
+            {
+                ws.Cells[string.Format("A{0}", rowStart)].Value = item.ID;
+                ws.Cells[string.Format("B{0}", rowStart)].Value = item.Name;
+                ws.Cells[string.Format("C{0}", rowStart)].Value = item.PurchasedCount;
+                rowStart++;
+            }
+
+            ws.Cells["A:AZ"].AutoFitColumns();
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment: filename=" + "Product.xlsx");
             Response.BinaryWrite(pck.GetAsByteArray());
             Response.End();
         }
