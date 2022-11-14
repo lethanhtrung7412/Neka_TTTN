@@ -250,15 +250,18 @@ namespace CosmeticsShop.Controllers
             if (signature != Request["signature"].ToString())
             {
                 ViewBag.message = "Thông tin request không hợp lệ";
+                return View();
             }
+            // Thành công = 0
+            // Thất bại != 0
             else if (!Request.QueryString["errorCode"].Equals("0"))
             {
                 ViewBag.message = "Thanh toán thất bại";
             }
             else
             {
-                
                 ViewBag.message = "Thanh toán thành công";
+                Session["Cart"] = new List<ItemCart>();
             }
             return View();
         }
