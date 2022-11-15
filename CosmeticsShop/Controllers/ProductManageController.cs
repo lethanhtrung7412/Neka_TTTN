@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -172,6 +173,29 @@ namespace CosmeticsShop.Controllers
             ViewBag.CategoryList = db.Categories.Where(x => x.IsActive == true).ToList();
             ViewBag.Message = "Thêm thành công";
             return View("Details", product);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            ViewBag.Message = "Cập nhật thành công";
+            return RedirectToAction("Index");
         }
     }
 }

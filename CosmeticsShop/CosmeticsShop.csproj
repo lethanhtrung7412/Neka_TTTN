@@ -231,10 +231,10 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
-    <Compile Include="Controllers\SlideController.cs" />
-    <Compile Include="Controllers\SlideManageController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\SlideManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Extensions\HashMD5.cs" />
     <Compile Include="Extensions\MomoSecurity.cs" />
     <Compile Include="Extensions\PaymentRequest.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,9 +270,6 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Slide.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -5362,10 +5359,14 @@
     <Content Include="Views\ProductManage\Add.cshtml" />
     <Content Include="Views\CategoryManage\Add.cshtml" />
     <Content Include="Views\Product\Test.cshtml" />
-    <Content Include="Views\SlideManage\Index.cshtml" />
     <Content Include="Views\Statistic\Product.cshtml" />
     <Content Include="Views\Statistic\SalesRevenue.cshtml" />
-    <Content Include="Views\SlideManage\Add.cshtml" />
+    <Content Include="Views\SlideManage\Create.cshtml" />
+    <Content Include="Views\SlideManage\Delete.cshtml" />
+    <Content Include="Views\SlideManage\Details.cshtml" />
+    <Content Include="Views\SlideManage\Edit.cshtml" />
+    <Content Include="Views\SlideManage\Index.cshtml" />
+    <Content Include="Views\ProductManage\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -50,6 +50,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="ShoppingModel.Product">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -66,22 +67,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ShoppingModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="IsConfirm" ColumnName="IsConfirm" />
-          <ScalarProperty Name="Captcha" ColumnName="Captcha" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="UserTypes">
       <EntityTypeMapping TypeName="ShoppingModel.UserType">
         <MappingFragment StoreEntitySet="UserType">
@@ -90,16 +75,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Slides">
-      <EntityTypeMapping TypeName="ShoppingModel.Slide">
-        <MappingFragment StoreEntitySet="Slides">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Url" ColumnName="Url" />
-          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ShoppingModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

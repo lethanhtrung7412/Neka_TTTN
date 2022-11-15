@@ -1,4 +1,6 @@
-﻿using CosmeticsShop.Models;
+﻿using CosmeticsShop.Extensions;
+using CosmeticsShop.Models;
+using DocumentFormat.OpenXml.EMMA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,50 +28,6 @@ namespace CosmeticsShop.Controllers
         {
             return View();
         }
-        //[HttpGet]
-        //public ActionResult ConfirmEmail(int ID)
-        //{
-        //    Models.User user = db.Users.SingleOrDefault(x => x.ID == ID);
-        //    if (user.IsConfirm.Value)
-        //    {
-        //        ViewBag.Message = "EmailConfirmed";
-        //        return View();
-        //    }
-        //    string urlBase = Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~");
-        //    ViewBag.Email = "Truy cập vào Email để xác minh tài khoản: " + user.Email;
-        //    SentMail("Mã xác minh tài khoản", user.Email, "khuongip564gb@gmail.com", "google..khuongip56412", "Xác minh nhanh bằng cách click vào link: " + urlBase + "User/ConfirmEmailLink/" + ID + "?Captcha=" + user.Captcha + "</p>");
-        //    return View();
-        //}
-        //[HttpGet]
-        //public ActionResult ConfirmEmailLink(int ID, string Captcha)
-        //{
-        //    User user = db.Users.SingleOrDefault(x => x.ID == ID && x.Captcha == Captcha);
-        //    if (user != null)
-        //    {
-        //        user.IsConfirm = true;
-        //        db.SaveChanges();
-        //        ViewBag.Message = "Xác minh tài khoản thành công";
-        //        return View();
-        //    }
-        //    ViewBag.Message = "Mã xác minh tài khoản không đúng";
-        //    return View();
-        //}
-        //public void SentMail(string Title, string ToEmail, string FromEmail, string Password, string Content)
-        //{
-        //    MailMessage mail = new MailMessage();
-        //    mail.To.Add(ToEmail);
-        //    mail.From = new MailAddress(ToEmail);
-        //    mail.Subject = Title;
-        //    mail.Body = Content;
-        //    mail.IsBodyHtml = true;
-        //    SmtpClient smtp = new SmtpClient();
-        //    smtp.Host = "smtp.gmail.com";
-        //    smtp.Port = 587;
-        //    smtp.UseDefaultCredentials = false;
-        //    smtp.Credentials = new NetworkCredential(FromEmail, Password);
-        //    smtp.EnableSsl = true;
-        //    smtp.Send(mail);
-        //}
         public ActionResult CheckoutOrder()
         {
             if (CheckRole("Client"))
@@ -114,6 +72,49 @@ namespace CosmeticsShop.Controllers
                 db.SaveChanges();
             }
             return RedirectToAction("CheckoutOrder");
+        }
+        public ActionResult Infor()
+        {
+            Models.User user = Session["User"] as Models.User;
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Infor(User user)
+        {
+            var u = db.Users.Find((Session["User"] as Models.User).ID);
+            u.Name = user.Name;
+            u.Address = user.Address;
+            u.Email = user.Email;
+            u.Phone = user.Phone;
+
+            db.SaveChanges();
+            ViewBag.Message = "Update successful!";
+            Session["User"] = u;
+            return View(user);
+        }
+        public ActionResult ChangePassword(User user)
+        {
+            var u = db.Users.Find((Session["User"] as Models.User).ID);
+            if (u == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                var taikhoan = db.Users.Find(Convert.ToInt32(u));
+                if (taikhoan == null) return RedirectToAction("SignIn", "Home");
+                var pass = (HashMD5.ToMD5(user.Password));
+                {
+                    string passnew = (HashMD5.ToMD5(user.Password));
+                    taikhoan.Password = passnew;
+                    db.SaveChanges();
+                    ViewBag.Success("Đổi mật khẩu thành công");
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            ViewBag.Success("Thay đổi mật khẩu không thành công");
+            return RedirectToAction("SignIn", "Home");
         }
     }
 }

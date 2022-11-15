@@ -1,7 +1,11 @@
-﻿using CosmeticsShop.Models;
+﻿using CosmeticsShop.Extensions;
+using CosmeticsShop.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,6 +27,7 @@ namespace CosmeticsShop.Controllers
             ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
             return View();
         }
+        
         public ActionResult SignUp()
         {
             return View();
@@ -36,14 +41,13 @@ namespace CosmeticsShop.Controllers
                 ViewBag.Message = "Email đã tồn tại";
                 return View();
             }
-
+           
             Models.User userAdded = new Models.User();
             try
             {
-                //user.Captcha = new Random().Next(100000, 999999).ToString();
-                //user.IsConfirm = false;
+                user.Password = HashMD5.ToMD5(user.Password);
                 user.UserTypeID = 2;
-                user.Address = "";
+                user.Address = "TPHCM";
                 user.Avatar = "avatar.jpg";
                 userAdded = db.Users.Add(user);
                 db.SaveChanges();
@@ -64,7 +68,8 @@ namespace CosmeticsShop.Controllers
         [HttpPost]
         public ActionResult SignIn(string Email, string Password)
         {
-            Models.User check = db.Users.SingleOrDefault(x => x.Email == Email && x.Password == Password);
+            string stringPassword = HashMD5.ToMD5(Password);
+            Models.User check = db.Users.SingleOrDefault(x => x.Email == Email && x.Password == stringPassword);
             if (check != null)
             {
                 Session["User"] = check;
