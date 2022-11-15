@@ -142,29 +142,13 @@ namespace CosmeticsShop.Controllers
             else if (payment == "momo")
             {
                 return RedirectToAction("PaymentWithMomo", "Payment");
-            }
-            SentMail("Đặt hàng thành công", user.Email, "khuongip564gb@gmail.com", "google..khuongip56412", "<p style=\"font-size:20px\">Cảm ơn bạn đã đặt hàng<br/>Mã đơn hàng của bạn là: " + order.ID);
+            }    
 
             Session.Remove("Cart");
             Session.Remove("OrderID");
             return RedirectToAction("Message", new { mess = "Đặt hàng thành công" });
         }
-        public void SentMail(string Title, string ToEmail, string FromEmail, string Password, string Content)
-        {
-            MailMessage mail = new MailMessage();
-            mail.To.Add(ToEmail);
-            mail.From = new MailAddress(ToEmail);
-            mail.Subject = Title;
-            mail.Body = Content;
-            mail.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(FromEmail, Password);
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
-        }
+       
         public ActionResult Message(string mess)
         {
             ViewBag.Message = mess;
