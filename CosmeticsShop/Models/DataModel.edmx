@@ -66,6 +66,20 @@
           <Property Name="CategoryID" Type="int" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Slides">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="ID" />
@@ -182,12 +196,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Slides_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Slides" Type="Self.Slides" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slides">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ShoppingModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slides" EntityType="Self.Slides" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Message__FromUse__36B12243" Association="Self.FK__Message__FromUse__36B12243">
@@ -222,7 +249,11 @@
             <End Role="UserType" EntitySet="UserType" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          </EntityContainer>
+          <AssociationSet Name="FK_Slides_Users" Association="Self.FK_Slides_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Slides" EntitySet="Slides" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -266,6 +297,11 @@
           <AssociationSet Name="FK__Users__UserTypeI__45F365D3" Association="ShoppingModel.FK__Users__UserTypeI__45F365D3">
             <End Role="UserType" EntitySet="UserTypes" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Slides" EntityType="ShoppingModel.Slide" />
+          <AssociationSet Name="FK_Slides_Users" Association="ShoppingModel.FK_Slides_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Slide" EntitySet="Slides" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Category">
@@ -400,6 +436,7 @@
           <NavigationProperty Name="Orders" Relationship="ShoppingModel.FK__Orders__UserID__4316F928" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Products" Relationship="ShoppingModel.FK__Products__Create__276EDEB3" FromRole="User" ToRole="Product" />
           <NavigationProperty Name="UserType" Relationship="ShoppingModel.FK__Users__UserTypeI__45F365D3" FromRole="User" ToRole="UserType" />
+          <NavigationProperty Name="Slides" Relationship="ShoppingModel.FK_Slides_Users" FromRole="User" ToRole="Slide" />
         </EntityType>
         <Association Name="FK__Message__FromUse__36B12243">
           <End Type="ShoppingModel.User" Role="User" Multiplicity="0..1" />
@@ -458,6 +495,33 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="User" Relationship="ShoppingModel.FK_Slides_Users" FromRole="Slide" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Slides_Users">
+          <End Type="ShoppingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ShoppingModel.Slide" Role="Slide" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Slide">
+              <PropertyRef Name="CreatedBy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -550,6 +614,21 @@
                 <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slides">
+            <EntityTypeMapping TypeName="ShoppingModel.Slide">
+              <MappingFragment StoreEntitySet="Slides">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

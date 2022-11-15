@@ -61,6 +61,20 @@
     <Property Name="CategoryID" Type="int" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Slides">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Url" Type="nvarchar" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="ID" />
@@ -177,12 +191,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Slides_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Slides" Type="Self.Slides" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slides">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ShoppingModelStoreContainer">
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slides" EntityType="Self.Slides" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Message__FromUse__36B12243" Association="Self.FK__Message__FromUse__36B12243">
@@ -216,6 +243,10 @@
     <AssociationSet Name="FK__Users__UserTypeI__45F365D3" Association="Self.FK__Users__UserTypeI__45F365D3">
       <End Role="UserType" EntitySet="UserType" />
       <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slides_Users" Association="Self.FK_Slides_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Slides" EntitySet="Slides" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

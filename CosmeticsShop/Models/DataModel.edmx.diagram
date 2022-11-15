@@ -20,6 +20,8 @@
         <AssociationConnector Association="ShoppingModel.FK__Orders__UserID__4316F928" />
         <AssociationConnector Association="ShoppingModel.FK__Products__Create__276EDEB3" />
         <AssociationConnector Association="ShoppingModel.FK__Users__UserTypeI__45F365D3" />
+        <EntityTypeShape EntityType="ShoppingModel.Slide" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="ShoppingModel.FK_Slides_Users" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

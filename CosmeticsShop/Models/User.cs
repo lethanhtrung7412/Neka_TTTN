@@ -21,6 +21,7 @@ namespace CosmeticsShop.Models
             this.Messages1 = new HashSet<Message>();
             this.Orders = new HashSet<Order>();
             this.Products = new HashSet<Product>();
+            this.Slides = new HashSet<Slide>();
         }
     
         public int ID { get; set; }
@@ -41,5 +42,7 @@ namespace CosmeticsShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
         public virtual UserType UserType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Slide> Slides { get; set; }
     }
 }

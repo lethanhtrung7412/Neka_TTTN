@@ -1,21 +1,19 @@
-﻿@*@model IEnumerable<CosmeticsShop.Models.Slide>
+﻿@model IEnumerable<CosmeticsShop.Models.Slide>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
- Content Header (Page header) 
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0">Quản lý tin tức</h1>
-            </div> /.col 
-        </div> /.row 
-    </div> /.container-fluid 
+            </div>
+        </div> 
+    </div>
 </div>
- /.content-header 
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -45,7 +43,6 @@
                 <a href="/SlideManage/Create" class="btn btn-outline-success col-2">Thêm mới</a>
             </div>
 
-             /.card-header 
             <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                     <thead>
@@ -67,7 +64,7 @@
                                     <td>@item.ID</td>
                                     <td>@item.Name</td>
                                    
-                                    <td>@item.CreatedBy</td>
+                                    <td>@item.User.Name</td>
                                     <td>@item.CreatedDate</td>
                                     @if (item.Status.Value)
                                     {
@@ -87,7 +84,7 @@
                                             <button class="btn btn-outline-success" onclick="location.href='/SlideManage/ToggleActive/@item.ID'">Mở</button>
                                         }
                                         <button class="btn btn-primary" onclick="location.href='/SlideManage/Details/@item.ID'">Chi tiết/Sửa</button>
-                                        <button class="btn btn-primary" onclick="location.href='/SlideManage/Delete/@item.ID'">Xoá</button>
+                                        <button class="btn btn-danger" onclick="location.href='/SlideManage/Delete/@item.ID'">Xoá</button>
                                     </td>
 
                                 </tr>
@@ -104,8 +101,6 @@
                     </tbody>
                 </table>
             </div>
-             /.card-body 
         </div>
-         /.card 
     </div>
-</div>*@
+</div>

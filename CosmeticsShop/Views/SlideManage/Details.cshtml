@@ -1,83 +1,71 @@
 ﻿@model CosmeticsShop.Models.Slide
-
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Model.Name;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Slide</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DisplayOrder)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DisplayOrder)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Url)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.Name)
-        </dd>
-
-    </dl>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Xem/Sửa sản phẩm</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Xem/Sửa sản phẩm</a></li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!-- /.content-header -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">@Model.Name</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    @using (Html.BeginForm("Edit", "ProductManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        <input type="text" name="ID" value="@Model.ID" hidden />
+                        <div class="card-body">
+                            <span class="badge bg-success">@ViewBag.Message</span>
+                            <div class="form-group">
+                                <label>Tên</label>
+                                <input type="text" class="form-control" value="@Model.Name" required name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Thứ tự bài viết</label>
+                                <input type="number" class="form-control" value="@Model.DisplayOrder" required name="DisplayOrder">
+                            </div>
+                            <div class="form-group">
+                                <label>Hình </label>
+                                <img src="~/Content/images/@Model.Image" alt="Alternate Text" style="width:200px;height:300px;border: solid 1px gray" />                              
+                            </div>
+                            <div class="form-group">
+                                <label>Chọn hình mới</label>
+                                <input type="file" class="form-control" name="ImageUpload">
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả</label>
+                                <textarea class="form-control" required name="Description">@Model.Description</textarea>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="/ProductManage/" class="btn btn-default">Trở lại</a>
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
