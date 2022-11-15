@@ -12,11 +12,14 @@ namespace CosmeticsShop.Controllers
         ShoppingEntities db = new ShoppingEntities();
         public ActionResult Index()
         {
+            if (Session["User"] != null && (Session["User"] as Models.User).UserTypeID == 1)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
             if (Session["Cart"] == null)
             {
                 Session["Cart"] = new List<ItemCart>();
             }
-            ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
             ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
             return View();
         }

@@ -57,12 +57,10 @@
                     </tbody>
                 </table>
             </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+           </div>
         @if (Model != null && Model.Count > 0)
         {
-            <a href="/Statistic/DownloadExcelStatisticOrder?from=@Request.Params["from"]&to=@Request.Params["to"]" class="btn btn-success float-right">Xuất Excel</a>
+            <a href="/Statistic/DownloadExcelStatisticOrder?from=@Request.Params["from"]&to=@Request.Params["to"]" class="btn btn-success float-right"><i class="fa-sharp fa-solid fa-down-to-line"></i>Xuất Excel</a>
         }
     </div>
 </div>

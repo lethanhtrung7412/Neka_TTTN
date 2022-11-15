@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="~/Content/Admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/Content/Admin/plugins/summernote/summernote-bs4.min.css">
-
+    <script src="https://kit.fontawesome.com/b88fea697a.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css">
@@ -82,7 +82,7 @@
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-pen-fill"></i>
+                                <i class="fa-solid fa-bag-shopping"></i>
                                 <span>Sản phẩm</span>
                             </a>
                             <ul class="submenu ">
@@ -97,20 +97,20 @@
 
                         <li class="sidebar-item">
                             <a href="/SlideManage/Index" class='sidebar-link'>
-                                <i class="bi bi-hexagon-fill"></i>
+                                <i class="fa-solid fa-tower-cell"></i>
                                 <span>Tin tức</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="/OrderManage/" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-medical"></i>
+                                <i class="fa-solid fa-file-invoice"></i>
                                 <span>Đơn hàng</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a href="/Chat/" class='sidebar-link'>
-                                <i class="bi bi-grid-1x2-fill"></i>
+                                <i class="fa-solid fa-comments"></i>
                                 <span>Chat</span>
                             </a>
                         </li>
@@ -118,7 +118,7 @@
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-pen-fill"></i>
+                                <i class="fa-solid fa-chart-simple"></i>
                                 <span>Thống kê</span>
                             </a>
                             <ul class="submenu ">
@@ -129,13 +129,13 @@
                                     <a href="/Statistic/Product">Sản phẩm</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="@Url.Action("Index","Statistic",new { from=DateTime.Now,to=DateTime.Now})">Doanh thu</a>
+                                    <a href="@Url.Action("SalesRevenue","Statistic",new { from=DateTime.Now,to=DateTime.Now})">Doanh thu</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
                             <a href="/Home/SignOut" class='sidebar-link'>
-                                <i class="bi bi-person-badge-fill"></i>
+                                <i class="fa-solid fa-right-from-bracket"></i>
                                 <span>Đăng xuất</span>
                             </a>
                         </li>
