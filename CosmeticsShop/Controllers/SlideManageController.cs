@@ -98,7 +98,7 @@ namespace CosmeticsShop.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
-           
+
             Slide slide = db.Slides.Find(ID);
             if (slide == null)
             {
@@ -116,7 +116,6 @@ namespace CosmeticsShop.Controllers
             Slide slideUpdate = db.Slides.Find(slide.ID);
             slideUpdate.Name = slide.Name;
             slideUpdate.DisplayOrder = slide.DisplayOrder;
-            slideUpdate.Status = slide.Status;
             slideUpdate.Description = slide.Description;
 
             for (int i = 0; i < ImageUpload.Length; i++)

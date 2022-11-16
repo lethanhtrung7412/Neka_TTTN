@@ -1,12 +1,9 @@
 ﻿using CosmeticsShop.Models;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using Microsoft.AspNetCore.Mvc;
-using System;
+using PagedList;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -25,7 +22,7 @@ namespace CosmeticsShop.Controllers
             return false;
         }
         // GET: ProductManage
-        public ActionResult Index(string keyword = "")
+        public ActionResult Index(string keyword = "", int? page = 1)
         {
             if (CheckRole("Admin"))
             {
@@ -35,16 +32,26 @@ namespace CosmeticsShop.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
+
             List<Product> products = new List<Product>();
             if (keyword != "")
             {
-                products = db.Products.Where(x => x.Name.Contains(keyword)).ToList();
+                products = db.Products.Where(x => x.Name.Contains(keyword)).OrderBy(x => x.ID).ToList();
             }
             else
             {
-                products = db.Products.Where(x => x.Name.Contains(keyword)).ToList();
+                products = db.Products.Where(x => x.Name.Contains(keyword)).OrderBy(x => x.ID).ToList();
             }
-            return View(products);
+            //Phân trang
+            if (page == null) page = 1;
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            PagedList<Product> models = new PagedList<Product>(products.AsQueryable(), pageNumber, pageSize);
+
+            //Trang hiện tại
+            ViewBag.CurrentPage = pageNumber;
+            return View(models);
+
         }
         public ActionResult ToggleActive(int ID)
         {

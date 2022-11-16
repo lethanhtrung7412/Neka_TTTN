@@ -1,4 +1,5 @@
 ﻿using CosmeticsShop.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,37 @@ namespace CosmeticsShop.Controllers
     {
         ShoppingEntities db = new ShoppingEntities();
         // GET: Product
-        public ActionResult Index(int CategoryID = 0, string keyword = "")
+        public ActionResult Index(int CategoryID = 0, string keyword = "", int? page = 1)
         {
             ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
+            List<Product> products = new List<Product>();
             if (keyword != "")
             {
                 ViewBag.NamePage = "Tìm kiếm sản phẩm";
-                ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.Name.Contains(keyword)).ToList();
+                products = db.Products.Where(x => x.IsActive == true && x.Name.Contains(keyword)).ToList();
                 return View();
             }
             if (CategoryID != 0)
             {
                 ViewBag.NamePage = "Danh mục " + db.Categories.Find(CategoryID).Name;
-                ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.CategoryID == CategoryID).ToList();
+                products = db.Products.Where(x => x.IsActive == true && x.CategoryID == CategoryID).ToList();
             }
             else
             {
                 ViewBag.NamePage = "Tất cả sản phẩm";
-                ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true).ToList();
+                products = db.Products.Where(x => x.IsActive == true).ToList();
             }
-            return View();
+
+            //Phân trang
+            if (page == null) page = 1;
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            PagedList<Product> models = new PagedList<Product>(products.AsQueryable(), pageNumber, pageSize);
+
+            //Trang hiện tại
+            ViewBag.ListProduct = products;
+            ViewBag.CurrentPage = pageNumber;
+            return View(models);
         }
         public ActionResult Details(int ID)
         {

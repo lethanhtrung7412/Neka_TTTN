@@ -11,7 +11,7 @@
             <div class="col-sm-6">
                 <h1 class="m-0">Quản lý tin tức</h1>
             </div>
-        </div> 
+        </div>
     </div>
 </div>
 <div class="row">
@@ -63,8 +63,9 @@
                                 <tr>
                                     <td>@item.ID</td>
                                     <td>@item.Name</td>
-                                   
+
                                     <td>@item.User.Name</td>
+                                    <td>@item.DisplayOrder</td>
                                     <td>@item.CreatedDate</td>
                                     @if (item.Status.Value)
                                     {
