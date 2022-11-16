@@ -89,6 +89,13 @@ img {
 	max-width: 100%;
 }
 
+.img-circle img {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: 5px solid #fff;
+}
+
 input:focus,
 select:focus,
 button:focus,
@@ -1679,6 +1686,10 @@ ol {
 	margin-top: 9px;
 	position: relative;
 	cursor: text;
+}
+
+.tab-content {
+	flex: 1;
 }
 
 .shipping-info .cs-item label span:after {

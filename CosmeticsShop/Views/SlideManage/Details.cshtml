@@ -32,7 +32,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    @using (Html.BeginForm("Edit", "SlideManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Edit", "ProductManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                     {
                         <input type="text" name="ID" value="@Model.ID" hidden />
                         <div class="card-body">
@@ -60,7 +60,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <a href="/SlideManage/" class="btn btn-default">Trở lại</a>
+                            <a href="/ProductManage/" class="btn btn-default">Trở lại</a>
                             <button type="submit" class="btn btn-primary">Lưu</button>
                         </div>
                     }
