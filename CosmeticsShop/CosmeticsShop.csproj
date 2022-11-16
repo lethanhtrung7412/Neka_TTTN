@@ -286,6 +286,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Account\css\style.css" />
     <Content Include="Content\Admin\assets\css\app.css" />
     <Content Include="Content\Admin\assets\css\bootstrap.css" />
     <Content Include="Content\Admin\assets\css\pages\auth.css" />
@@ -5313,6 +5314,7 @@
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_utilities-extend.scss" />
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_utilities.scss" />
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_variables.scss" />
+    <Content Include="Content\Account\sass\style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -5370,6 +5372,7 @@
     <Content Include="Views\SlideManage\Details.cshtml" />
     <Content Include="Views\SlideManage\Index.cshtml" />
     <Content Include="Views\ProductManage\Delete.cshtml" />
+    <Content Include="Views\User\Infor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
