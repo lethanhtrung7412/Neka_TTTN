@@ -160,12 +160,12 @@ ol {
 /* buttons */
 
 .primary-btn {
-	color: #fff;
+	color: #1E1E1E;
 	display: inline-block;
 	font-size: 14px;
 	font-weight: 600;
 	padding: 16px 40px;
-	border: 2px solid #fff;
+	border: 2px solid #1E1E1E;
 	border-radius: 50px;
 	text-transform: uppercase;
 }

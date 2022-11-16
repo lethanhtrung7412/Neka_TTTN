@@ -4793,6 +4793,7 @@
     <Content Include="Content\Webapp\img\products\img-9.jpg" />
     <Content Include="Content\Webapp\img\product\product-1.jpg" />
     <Content Include="Content\Webapp\img\slider-1.jpg" />
+    <Content Include="Content\Webapp\img\slider-1.png" />
     <Content Include="Content\Webapp\img\slider-2.jpg" />
     <Content Include="Content\Webapp\img\slider-3.jpg" />
     <Content Include="Content\Webapp\js\bootstrap.min.js" />
