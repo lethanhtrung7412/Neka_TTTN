@@ -3785,6 +3785,10 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Home\main.js" />
+    <Content Include="Content\Home\main.min.js" />
+    <Content Include="Content\Home\style.css" />
+    <Content Include="Content\Home\style.min.css" />
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\10.jpg" />
     <Content Include="Content\images\11.jpg" />
