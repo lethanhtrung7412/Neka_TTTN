@@ -92,8 +92,7 @@ namespace CosmeticsShop.Controllers
             Session["User"] = u;
             return View(user);
         }
-        [HttpPost]
-        public ActionResult ChangePassword(User user, string OldPassword, string Password)
+        public ActionResult ChangePassword(User user)
         {
             var u = db.Users.Find((Session["User"] as Models.User).ID);
             if (u == null)
@@ -103,11 +102,12 @@ namespace CosmeticsShop.Controllers
 
             if (ModelState.IsValid)
             {
-               
-                var pass = user.Password;
-                if (pass == HashMD5.ToMD5(OldPassword)){
-                    string passnew = (HashMD5.ToMD5(Password));
-                    u.Password = passnew;
+                var taikhoan = db.Users.Find(Convert.ToInt32(u));
+                if (taikhoan == null) return RedirectToAction("SignIn", "Home");
+                var pass = (HashMD5.ToMD5(user.Password));
+                {
+                    string passnew = (HashMD5.ToMD5(user.Password));
+                    taikhoan.Password = passnew;
                     db.SaveChanges();
                     ViewBag.Success("Đổi mật khẩu thành công");
                     return RedirectToAction("Index", "Home");

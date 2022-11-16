@@ -108,6 +108,12 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
       <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
     </Reference>
@@ -286,7 +292,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Account\css\style.css" />
     <Content Include="Content\Admin\assets\css\app.css" />
     <Content Include="Content\Admin\assets\css\bootstrap.css" />
     <Content Include="Content\Admin\assets\css\pages\auth.css" />
@@ -4682,6 +4687,7 @@
     <Content Include="Content\Login\vendors\typeahead.js\typeahead.bundle.min.js" />
     <Content Include="Content\Login\vendors\typicons\typicons.css" />
     <Content Include="Content\Login\vendors\typicons\typicons.svg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Signup\assets\css\nucleo-icons.css" />
     <Content Include="Content\Signup\assets\css\nucleo-svg.css" />
     <Content Include="Content\Signup\assets\css\soft-ui-dashboard.css" />
@@ -5314,7 +5320,6 @@
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_utilities-extend.scss" />
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_utilities.scss" />
     <Content Include="Content\Signup\assets\scss\soft-ui-dashboard\_variables.scss" />
-    <Content Include="Content\Account\sass\style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -5372,7 +5377,6 @@
     <Content Include="Views\SlideManage\Details.cshtml" />
     <Content Include="Views\SlideManage\Index.cshtml" />
     <Content Include="Views\ProductManage\Delete.cshtml" />
-    <Content Include="Views\User\Infor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

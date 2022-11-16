@@ -612,3 +612,7 @@ D:\Trung\hello\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.csproj.CoreCompil
 D:\Trung\hello\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.csproj.CopyComplete
 D:\Trung\hello\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.dll
 D:\Trung\hello\Neka_TTTN\CosmeticsShop\obj\Debug\CosmeticsShop.pdb
+D:\HOC TAP\TTTN\me\Neka_TTTN\CosmeticsShop\bin\PagedList.dll
+D:\HOC TAP\TTTN\me\Neka_TTTN\CosmeticsShop\bin\PagedList.Mvc.dll
+D:\HOC TAP\TTTN\me\Neka_TTTN\CosmeticsShop\bin\PagedList.xml
+D:\HOC TAP\TTTN\me\Neka_TTTN\CosmeticsShop\bin\PagedList.Mvc.xml
