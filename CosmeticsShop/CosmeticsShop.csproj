@@ -5372,7 +5372,6 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\ProductManage\Add.cshtml" />
     <Content Include="Views\CategoryManage\Add.cshtml" />
-    <Content Include="Views\Product\Test.cshtml" />
     <Content Include="Views\Statistic\Product.cshtml" />
     <Content Include="Views\Statistic\SalesRevenue.cshtml" />
     <Content Include="Views\SlideManage\Create.cshtml" />
@@ -5381,6 +5380,9 @@
     <Content Include="Views\SlideManage\Index.cshtml" />
     <Content Include="Views\ProductManage\Delete.cshtml" />
     <Content Include="Views\User\Infor.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Quiz.cshtml" />
+    <Content Include="Views\Home\Suggest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

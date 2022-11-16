@@ -262,6 +262,7 @@ namespace CosmeticsShop.Controllers
             {
                 ViewBag.message = "Thanh toán thành công";
                 Session["Cart"] = new List<ItemCart>();
+                
             }
             return View();
         }
@@ -288,7 +289,12 @@ namespace CosmeticsShop.Controllers
             string signature = crypto.signSHA256(param, serectKey);
             if (signature != Request["signature"].ToString())
             {
-                //Fail
+                Session.Remove("Cart");
+                //update paid
+                Models.Order order = db.Orders.Find(Convert.ToInt32(Session["OrderId"]));
+                order.IsPaid = true;
+                db.SaveChanges();
+                Session.Remove("OrderID");
             }
             string status_code = Request["status_code"].ToString();
             if (status_code != "0")
@@ -297,12 +303,7 @@ namespace CosmeticsShop.Controllers
             }
             else
             {
-                Session.Remove("Cart");
-                //update paid
-                Models.Order order = db.Orders.Find(Convert.ToInt32(Session["OrderId"]));
-                order.IsPaid = true;
-                db.SaveChanges();
-                Session.Remove("OrderID");
+                
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }

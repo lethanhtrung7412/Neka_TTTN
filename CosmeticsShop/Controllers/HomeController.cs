@@ -27,7 +27,10 @@ namespace CosmeticsShop.Controllers
             ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.PurchasedCount > 0).OrderByDescending(x => x.PurchasedCount).ToList();
             return View();
         }
-        
+        public ActionResult Contact()
+        {
+            return View();
+        }
         public ActionResult SignUp()
         {
             return View();
@@ -86,6 +89,51 @@ namespace CosmeticsShop.Controllers
         {
             Session.Remove("User");
             return RedirectToAction("Index");
+        }
+        public ActionResult Quiz()
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("SignIn", "Home");
+            }
+            return View();
+        }
+        public ActionResult Suggest()
+        {
+            ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
+            ViewBag.ListProduct = Session["Suggest"] as List<Product>;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Suggest(List<string> data)
+        {
+            var product = new List<Product>();
+            ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
+            var s = string.Join(" ", data);
+            if (s.Contains("shiny") && s.Contains("red") && s.Contains("itchy"))
+            {
+                product = db.Products.Where(x => x.Type == "Combination").ToList();
+                Session["Suggest"] = product;
+                return Json(new { message = "Bạn có làn da hỗn hợp." }, JsonRequestBehavior.AllowGet);
+            }
+            else if (s.Contains("shiny"))
+            {
+                product = db.Products.Where(x => x.Type == "Oily").ToList();
+                Session["Suggest"] = product;
+                return Json(new { message = "Làn da của bạn là da dầu." }, JsonRequestBehavior.AllowGet);
+            }
+            else if (s.Contains("itchy"))
+            {
+                product = db.Products.Where(x => x.Type == "Dry").ToList();
+                Session["Suggest"] = product;
+                return Json(new { message = "Bạn có một làn da khô" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                product = db.Products.Where(x => x.Type == "Sensitive").ToList();
+                Session["Suggest"] = product;
+                return Json(new { message = "Bạn có làn da nhạy cảm." }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

@@ -53,10 +53,36 @@
                     <a href="/"><img src="~/Content/Webapp/img/logos/logo.png" alt=""></a>
                 </div>
                 <div class="header-right">
-                    <img src="~/Content/Webapp/img/icons/search.png" alt="" class="search-trigger">
-                    <a href="/Index/Login">
-                        <img src="~/Content/Webapp/img/icons/man.png" alt="">
+                    <a class="play-icon popup-with-zoom-anim" href="#small-dialog">
+                        <i class="glyphicon glyphicon-search"> </i>
+                        <img src="~/Content/Webapp/img/icons/search.png" alt="" class="search-trigger">
                     </a>
+                    <div id="small-dialog" class="mfp-hide">
+                        <div class="search-top">
+                            <div class="login">
+                                <form action="/Product/Index" method="get">
+                                    <input type="submit" value="">
+                                    <input type="text" name="keyword" value="Search......" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    @{
+                        CosmeticsShop.Models.User userInfo = Session["User"] as CosmeticsShop.Models.User;
+
+                        if (userInfo != null)
+                        {
+                            <a href="/User/Infor">
+                                <img src="~/Content/Webapp/img/icons/man.png" alt="">
+                            </a>
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
                     <a href="/Cart/Checkout">
                         <div class="total">
                             @{
@@ -85,7 +111,7 @@
 
                             string[] token = user.Name.Split(' ');
                             string name = token[token.Length - 1];
-                            <a href="/User/Infor">@name</a>
+                            <a href="/User/CheckoutOrder">@name</a>
 
                             <a href="/Home/SignOut" class="in">Đăng xuất</a>
 
@@ -107,8 +133,9 @@
 
                         </li>
                         <li><a href="/">Diễn đàn</a></li>
-                        <li><a href="/">Liên hệ</a></li>
-                        
+                        <li><a href="/Home/Quiz">Gợi ý sản phẩm</a></li>
+                        <li><a href="/Contact">Liên hệ</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -149,8 +176,8 @@
             <div class="chatbox__title">
                 <h5><a href="javascript:void()">Chat với chúng tôi</a></h5>
                 <!--<button class="chatbox__title__tray">
-            <span></span>
-        </button>-->
+                    <span></span>
+                </button>-->
                 <button class="chatbox__title__close">
                     <span>
                         <svg viewBox="0 0 12 12" width="12px" height="12px">
