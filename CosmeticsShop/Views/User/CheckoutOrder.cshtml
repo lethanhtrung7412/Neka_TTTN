@@ -3,25 +3,18 @@
     ViewBag.Title = "Quản lý đơn đặt hàng";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
-<div class="breadcrumbs">
-    <div class="container">
-        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-            <li class="active">Đơn đặt hàng</li>
-        </ol>
-    </div>
-</div>
+
 <!--content-->
 <div class="products">
     <div class="container">
         <h2>Đơn đặt hàng của tôi</h2>
         <div>
-            <div >
+            <div class="py-2">
                 <div class="navbar-nav d-flex flex-row">
-                    <a class="nav-item nav-link active badge badge-light p-0 pr-2" href="#processing" data-toggle="tab">Chưa duyệt</a>
-                    <a class="nav-item nav-link badge badge-light p-0 pr-2 " href=" #processed" data-toggle="tab">Đã duyệt</a>
-                    <a class="nav-item nav-link badge badge-light p-0 pr-2" href="#delivering" data-toggle="tab">Đang giao hàng</a>
-                    <a class="nav-item nav-link badge badge-light p-0 pr-2" href="#complete" data-toggle="tab">Hoàn thành</a>
+                    <a class="nav-item nav-link active badge badge-light p-0 px-2 py-2" href="#processing" data-toggle="tab">Chưa duyệt</a>
+                    <a class="nav-item nav-link badge badge-light p-0 px-2 py-2" href=" #processed" data-toggle="tab">Đã duyệt</a>
+                    <a class="nav-item nav-link badge badge-light p-0 px-2 py-2" href="#delivering" data-toggle="tab">Đang giao hàng</a>
+                    <a class="nav-item nav-link badge badge-light p-0 px-2 py-2" href="#complete" data-toggle="tab">Hoàn thành</a>
                 </div>
             </div>
             @*<ul class="navbar-nav" id="myTab">

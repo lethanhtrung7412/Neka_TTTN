@@ -95,6 +95,16 @@
                 </div>
             </div>
             <div class="col-lg-6">
+                @{
+                    CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
+                    if (user != null)
+                    {
+                        <div class="page-breadcrumb">
+                            <a href="/User/CheckoutOrder"><h3>Tất cả đơn hàng<span>.</span></h3></a>
+                            
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
