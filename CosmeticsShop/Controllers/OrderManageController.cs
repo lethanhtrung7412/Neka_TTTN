@@ -1,6 +1,4 @@
 ﻿using CosmeticsShop.Models;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
-using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +20,7 @@ namespace CosmeticsShop.Controllers
             return false;
         }
         // GET: OrderManage
-        public ActionResult Index(int? page = 1)
+        public ActionResult Index()
         {
             if (CheckRole("Admin"))
             {
@@ -32,16 +30,8 @@ namespace CosmeticsShop.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
-            List<Order> orders = db.Orders.OrderBy(x=> x.ID).ToList();
-            //Phân trang
-            if (page == null) page = 1;
-            int pageSize = 4;
-            int pageNumber = (page ?? 1);
-            PagedList<Order> models = new PagedList<Order>(orders.AsQueryable(), pageNumber, pageSize);
-
-            //Trang hiện tại
-            ViewBag.CurrentPage = pageNumber;
-            return View(models);
+            List<Order> orders = db.Orders.ToList();
+            return View(orders);
         }
         public ActionResult Details(int ID)
         {
