@@ -1,32 +1,59 @@
-﻿<html lang="en">
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>SKIN TYPE QUIZ</title>
-    <link href="~/Content/css/quiz.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/Content/Admin/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/Admin/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css">
+
 </head>
 <body>
-    <div class="quiz-container" id="quiz">
+    <section class="page-add">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="page-breadcrumb">
+                        <h4>Gợi ý sản phẩm<span>.</span></h4>
+                        <a href="#">Trang chủ</a>
+                        <a class="active" href="#">Gợi ý sản phẩm</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="quiz-containera d-flex justify-content-center align-items-center" id="quiz">
         <div class="quiz-header">
             <h2 id="questions">questions</h2>
-            <ul>
-                <li>
-                    <input type="radio" name="answer" class="answer" id="a"><label for="a" id="a_text">a</label></input>
+            <ul style="list-style:none">
+                <li style="display:flex;align-items:baseline;">
+                    <input style="display:block;margin-right:10px;" type="radio" name="answer" class="answer" id="a">
+                    <label style="display:block;" for="a" id="a_text">a</label>
+                <li style="display:flex;align-items:baseline;">
+                    <input style="display:block;margin-right:10px;" type="radio" name="answer" class="answer" id="b">
+                    <label style="display:block;" for="b" id="b_text">b</label>
                 </li>
-                <li>
-                    <input type="radio" name="answer" class="answer" id="b"><label for="b" id="b_text">b</label></input>
+                <li style="display:flex;align-items:baseline;">
+                    <input style="display:block;margin-right:10px;" type="radio" name="answer" class="answer" id="c">
+                    <label style="display:block;" for="c" id="c_text">c</label>
                 </li>
-                <li>
-                    <input type="radio" name="answer" class="answer" id="c"><label for="c" id="c_text">c</label></input>
-                </li>
-                <li>
-                    <input type="radio" name="answer" class="answer" id="d"><label for="d" id="d_text">d</label></input>
+                <li style="display:flex;align-items:baseline;">
+                    <input style="display:block;margin-right:10px;" type="radio" name="answer" class="answer" id="d">
+                    <label style="display:block;" for="d" id="d_text">d</label>
                 </li>
             </ul>
         </div>
-        <button type="button" id="button">Submit</button>
+        <button type="button" class="btn btn-info rounded-pill" id="button">Qua câu khác</button>
     </div>
     <script>
         const quiz_Data = [
@@ -55,7 +82,7 @@
                 correct: "a"
             },
             {
-                 question: " Khi tôi chạm vào mặt mình...",
+                question: " Khi tôi chạm vào mặt mình...",
                 a: "Da tôi hơi sần sùi và nhăn nheo.",
                 b: "Tôi cảm thấy cần một chiếc khăn ăn để lau những ngón tay dính dầu mỡ của mình!",
                 c: "Má tôi hơi giống giấy nhám, nhưng trán tôi trơn!",
@@ -147,3 +174,5 @@
     </script>
 </body>
 </html>
+
+
