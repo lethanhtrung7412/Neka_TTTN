@@ -5384,10 +5384,11 @@
     <Content Include="Views\Home\Quiz.cshtml" />
     <Content Include="Views\Home\Suggest.cshtml" />
     <Content Include="Views\CategoryManage\Delete.cshtml" />
+    <Content Include="Views\Slide\Details.cshtml" />
+    <Content Include="Views\Slide\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Slide\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
