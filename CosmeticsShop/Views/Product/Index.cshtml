@@ -58,17 +58,31 @@
 <div>
     <div class="container">
         <div class="col-md-3 product-bottom">
+            <h3 class="cate" style="color: #1E1E1E">Danh mục</h3>
+
             <!--categories-->
-            <div class=" rsidebar span_1_of_left">
-                <h3 class="cate" style="color: #1E1E1E">Danh mục</h3>
-                <ul class="menu-drop">
-                    @foreach (var item in categories)
-                    {
-                        <li class="item1">
-                            <a href="/Product/Index?CategoryID=@item.ID">@item.Name</a>
-                        </li>
-                    }
-                </ul>
+            <div class=" categories-controls">
+                <div class="row">
+                   <div class="col-lg-12">
+                       <div class="categories-filter">
+                           <div class="cf-left">
+                               <form action="#">
+                                   <select class="sort" onchange="javascrip: location.href = this.value">
+                                       <option value="">Chọn</option>
+
+                                       @foreach (var item in categories)
+                                       {
+                                           <option value="/Product/Index?CategoryID=@item.ID">@item.Name</option>
+
+                                       }
+
+                                   </select>
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+
+                </div>
             </div>
         </div>
         <div class="row">
