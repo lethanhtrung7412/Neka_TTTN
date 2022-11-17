@@ -23,8 +23,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet">
     <!-- Css Styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Return Url -->
+    
     <link rel="stylesheet" href="~/Content/Webapp/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/Webapp/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/Webapp/css/nice-select.css" type="text/css">
@@ -67,7 +69,6 @@
                             </div>
                         </div>
                     </div>
-
                     @{
                         CosmeticsShop.Models.User userInfo = Session["User"] as CosmeticsShop.Models.User;
 
@@ -82,7 +83,6 @@
 
                         }
                     }
-
                     <a href="/Cart/Checkout">
                         <div class="total">
                             @{
@@ -101,7 +101,6 @@
                     </a>
                 </div>
                 <div class="user-access">
-
                     @{
                         CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
 
@@ -123,7 +122,6 @@
                             <a href="/Home/SignIn" class="in">Đăng nhập</a>
                         }
                     }
-
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
@@ -230,7 +228,7 @@
             <div class="container text-center pt-5">
                 <p>
                     Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <script>document.write(new Date().getFullYear());</script><i class="icon-heart color-danger" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank">Colorlib</a>
                 </p>
             </div>
         </div>

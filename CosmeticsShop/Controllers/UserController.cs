@@ -88,7 +88,7 @@ namespace CosmeticsShop.Controllers
             u.Phone = user.Phone;
 
             db.SaveChanges();
-            ViewBag.Message = "Update successful!";
+            ViewBag.Message = "Cập nhật thành công!";
             Session["User"] = u;
             return View(user);
         }

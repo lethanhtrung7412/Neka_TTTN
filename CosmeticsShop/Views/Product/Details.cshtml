@@ -3,66 +3,9 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_ProductLayout.cshtml";
 
+
     List<CosmeticsShop.Models.Category> categories = ViewBag.ListCategory as List<CosmeticsShop.Models.Category>;
 }
-
-<section class="page-add">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="page-breadcrumb">
-                    <a href="#">Trang chủ</a>
-
-                    <a class="active" href="#">@Model.Name</a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-            </div>
-        </div>
-    </div>
-</section>
-<div class="product">
-    <div class="container">
-        <div class="row"">
-            <div class="col-md-5">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li data-thumb="@Url.Content("~/Content/images/" + Model.Image1)">
-                            <img src="@Url.Content("~/Content/images/" + Model.Image1)" data-imagezoom="true" class="img-responsive">
-                        </li>
-                        @if (Model.Image2 != null)
-                        {
-                            <li data-thumb="@Url.Content("~/Content/images/" + Model.Image2)">
-                                <div class="thumb-image"> <img src="@Url.Content("~/Content/images/" + Model.Image2)" data-imagezoom="true" class="img-responsive"> </div>
-                            </li>
-                        }
-                        @if (Model.Image3 != null)
-                        {
-                            <li data-thumb="@Url.Content("~/Content/images/" + Model.Image3)">
-                                <div class="thumb-image"> <img src="@Url.Content("~/Content/images/" + Model.Image3)" data-imagezoom="true" class="img-responsive"> </div>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-7 product-content">
-                <div class="single-para simpleCart_shelfItem">
-                    <h2>@Model.Name</h2>
-                    <div class="pc-meta">
-                        <h5> @Model.Price.Value.ToString("#,##")₫</h5>
-
-                    </div>
-                    <p>@Model.Description</p>
-                    <ul class="tags">
-                        <li><span>Danh mục :</span> @Model.Category.Name</li>
-                    </ul>
-                    <a href="#" class="item_add primary-btn pc-btn" data-id="@Model.ID">Chọn mua</a>
-                </div>
-            </div>
-           
-        </div>
-    </div>
-</div>
 
 <script>
     $(document).ready(function () {
@@ -96,3 +39,65 @@
         })
     });
 </script>
+<section class="page-add">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-breadcrumb">
+                    <a href="#">Trang chủ</a>
+
+                    <a class="active" href="#">@Model.Name</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="product">
+    <div class="container">
+        <div class="row" ">
+            <div class="col-md-5">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="@Url.Content("~/Content/images/" + Model.Image1)">
+                            <img src="@Url.Content("~/Content/images/" + Model.Image1)" data-imagezoom="true" class="img-responsive">
+                        </li>
+                        @if (Model.Image2 != null)
+                        {
+                            <li data-thumb="@Url.Content("~/Content/images/" + Model.Image2)">
+                                <div class="thumb-image"> <img src="@Url.Content("~/Content/images/" + Model.Image2)" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                        }
+                        @if (Model.Image3 != null)
+                        {
+                            <li data-thumb="@Url.Content("~/Content/images/" + Model.Image3)">
+                                <div class="thumb-image"> <img src="@Url.Content("~/Content/images/" + Model.Image3)" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 product-content">
+                <div class="single-para simpleCart_shelfItem">
+                    <h2>@Model.Name</h2>
+                    <div class="pc-meta">
+                        <h5> @Model.Price.Value.ToString("#,##")₫</h5>
+
+                    </div>
+                    <p>@Model.Description</p>
+                    <ul class="tags">
+                        <li>
+                            <span>Danh mục :</span>
+                            <a href="/Product/Index?CategoryID=@Model.Category.ID">
+                                @Model.Category.Name
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="item_add primary-btn pc-btn" data-id="@Model.ID">Chọn mua</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

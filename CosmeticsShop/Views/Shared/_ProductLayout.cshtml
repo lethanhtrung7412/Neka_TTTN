@@ -1,9 +1,4 @@
-﻿<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +49,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="header-right">
                     <img src="~/Content/Webapp/img/icons/search.png" alt="" class="search-trigger">
+                    @{
+                        CosmeticsShop.Models.User userInfo = Session["User"] as CosmeticsShop.Models.User;
+
+                        if (userInfo != null)
+                        {
+                            <a href="/User/Infor">
+                                <img src="~/Content/Webapp/img/icons/man.png" alt="">
+                            </a>
+                        }
+                        else
+                        {
+
+                        }
+                    }
                     <a href="/Cart/Checkout">
                         <div class="total">
                             @{
@@ -74,16 +83,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="user-access">
                     @{
                         CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
-
                         if (user != null)
                         {
                             <input type="text" id="UserID" value="@user.ID" hidden />
-
-                            <a href="/User/CheckoutOrder">@user.Name</a>
-
+                            string[] token = user.Name.Split(' ');
+                            string name = token[token.Length - 1];
+                            <a href="/User/CheckoutOrder">@name</a>
                             <a href="/Home/SignOut" class="in">Đăng xuất</a>
-
-
                         }
                         else
                         {
@@ -92,52 +98,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         }
                     }
                 </div>
-                @*<div class="user-access">
-                        @if (user != null)
-                        {
-                            <a href="/Home/SignOut">Đăng xuất</a>
-                        }
-                        else
-                        {
-                            <a href="/Home/SignUp">Đăng ký</a>
-                            <a href="/Home/SignIn">Đăng nhập</a>
-                        }
-                    </div>*@
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="/">Home</a></li>
+                        <li><a href="/">Trang chủ</a></li>
                         <li>
                             <a href="/Product/">Sản phẩm</a>
-
                         </li>
-                        
-                        <li><a href="/">Blog</a></li>
-                        <li><a href="/">Contact</a></li>
+                        <li><a href="/Slide/">Diễn đàn</a></li>
+                        <li><a href="/Home/Quiz">Gợi ý sản phẩm</a></li>
+                        <li><a href="/Home/Contact">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <!-- Header Info Begin -->
-    <div class="header-info">
+    <div class="header-info w-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
                     <div class="header-item">
                         <img src="img/icons/delivery.png" alt="">
-                        <p>Free shipping on orders over $30 in USA</p>
+                        <p>Hotline: 0342 309 365</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
                         <img src="img/icons/voucher.png" alt="">
-                        <p>20% Student Discount</p>
+                        <p>Giảm giá cực sốc</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-xl-right">
                     <div class="header-item">
                         <img src="img/icons/sales.png" alt="">
-                        <p>30% off on dresses. Use code: 30OFF</p>
+                        <p>Giảm 30% sản phẩm khi dùng mã: 30OFF</p>
                     </div>
                 </div>
             </div>
@@ -188,6 +182,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             }
         </div>
     </div>
+    <!-- Footer Section Begin -->
+    <footer class="footer-section spad">
+        <div class="social-links-warp">
+            <div class="container">
+                <div class="social-links">
+                    <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                    <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                    <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                </div>
+            </div>
+
+            <div class="container text-center pt-5">
+                <p>
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script><i class="icon-heart color-danger" aria-hidden="true"></i><a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </p>
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript">
         $(document).ready(function () {
             $(function () {

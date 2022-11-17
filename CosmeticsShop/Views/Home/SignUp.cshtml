@@ -13,7 +13,8 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Đăng ký tài khoản</h2>
-
+                            <h6 style="color: red"> @ViewBag.message</h6>
+                            <br />
                             @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
                             {
                                 <div class="mb-3">
@@ -38,7 +39,7 @@
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
                                             <input type="checkbox" class="form-check-input">
-                                            I agree to all Terms & Conditions
+                                           Tôi đồng ý với điều kiện & điều khoản
                                         </label>
                                     </div>
                                 </div>
@@ -46,7 +47,7 @@
                                     <input class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" value="Đăng ký">
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    Already have an account? <a href="login.html" class="text-primary">Login</a>
+                                    Bạn đã có tài khoản? <a href="login.html" class="text-primary">Đăng nhập ngay</a>
                                 </div>
                             }
                         </div>
