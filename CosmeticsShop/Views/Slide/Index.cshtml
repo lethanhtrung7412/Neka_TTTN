@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CosmeticsShop.Models.Slide>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div class="container h-100 pt-5">
+    <div class="list-group">
+        @{
+            foreach (var slide in Model)
+            {
+                <a href="/Slide/Details/@slide.ID" class="list-group-item list-group-item-action"  style="color: #1E1E1E">
+                    <div>
+                        <p style="color: #1e1e1e; font-weight: 600">@slide.Name</p>
+                        <div class="d-flex flex-row">
+                            <p class="pr-2">Người tạo: @slide.User.Name</p>
+                            <p class="px-2">Đăng ngày: @slide.CreatedDate</p>
+                        </div>
+                    </div>
+                </a>
+
+            }
+        }
+    </div>
+</div>

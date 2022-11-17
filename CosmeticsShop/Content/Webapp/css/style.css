@@ -320,7 +320,7 @@ ol {
 
 .inner-header .user-access {
 	float: right;
-	margin-right: 100px;
+	margin-right: 40px;
 }
 
 .inner-header .user-access a {
@@ -2064,7 +2064,7 @@ ol {
 @media only screen and (min-width: 1500px) and (max-width: 1920px) {
 	.inner-header .user-access {
 		float: right;
-		margin-right: 200px;
+		margin-right: 100px;
 	}
 	.inner-header .main-menu {
 		float: right;

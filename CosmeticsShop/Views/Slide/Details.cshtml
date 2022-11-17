@@ -1,0 +1,29 @@
+﻿@model CosmeticsShop.Models.Slide
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container pt-5 w-100">
+    <h2 style="text-align: center;">@Model.Name</h2>
+    <img src="~/Content/images/@Model.Image" alt="picture" class="w-100 py-2" />
+    <p style="color: #1e1e1e">@Model.Description</p>
+
+    <div class="d-flex flex-column">
+        <div>
+            <p style="color: #1e1e1e; font-weight: 600">Người tạo</p>
+            <p>@Model.User.Name</p>
+        </div>
+        <div>
+            <p style="color: #1e1e1e; font-weight: 600">Ngày tạo</p>
+            <p>@Model.CreatedDate</p>
+        </div>
+    </div>  
+  
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>
