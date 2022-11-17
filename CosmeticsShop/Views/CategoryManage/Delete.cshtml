@@ -1,4 +1,4 @@
-﻿@model CosmeticsShop.Models.Product
+﻿@model CosmeticsShop.Models.Category
 
 @{
     ViewBag.Title = "Delete";
@@ -10,10 +10,10 @@
 <h3>Bạn có thật sự muốn xoá?</h3>
 <div>
 
-    @using (Html.BeginForm("Delete", "ProductManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Delete", "CategoryManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         <div class="card-footer">
-            <a href="/ProductManage/"  class="btn btn-light-secondary">Trở lại</a>
+            <a href="/CategoryManage/" class="btn btn-light-secondary">Trở lại</a>
             <button type="submit" class="btn btn-danger ml-1">Xoá</button>
         </div>
     }

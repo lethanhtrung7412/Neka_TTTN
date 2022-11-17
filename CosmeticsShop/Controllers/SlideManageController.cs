@@ -7,8 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Razor.Tokenizer.Symbols;
 using CosmeticsShop.Models;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using PagedList;
 
 namespace CosmeticsShop.Controllers
 {
@@ -24,8 +26,8 @@ namespace CosmeticsShop.Controllers
             }
             return false;
         }
-        // GET: TestManage
-        public ActionResult Index()
+        // GET: 
+        public ActionResult Index(string keyword = "")
         {
             if (CheckRole("Admin"))
             {
@@ -35,8 +37,18 @@ namespace CosmeticsShop.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
-            var slides = db.Slides.Include(s => s.User);
-            return View(slides.ToList());
+            List<Slide> slides = new List<Slide>();
+            if (keyword != "")
+            {
+                slides = db.Slides.Where(x => x.Name.Contains(keyword)).OrderBy(x => x.ID).ToList();
+            }
+            else
+            {
+                slides = db.Slides.Where(x => x.Name.Contains(keyword)).OrderBy(x => x.ID).ToList();
+            }
+            return View(slides);
+
+           
         }
         public ActionResult ToggleActive(int ID)
         {
@@ -46,7 +58,7 @@ namespace CosmeticsShop.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: TestManage/Create
+        // GET: /Create
         public ActionResult Create()
         {
             ViewBag.CreatedBy = new SelectList(db.Users, "ID", "Name");
@@ -147,26 +159,17 @@ namespace CosmeticsShop.Controllers
             return View("Details", slideUpdate);
         }
 
-        public ActionResult Delete(int? id)
+        public ActionResult Delete()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Slide slide = db.Slides.Find(id);
-            if (slide == null)
-            {
-                return HttpNotFound();
-            }
-            return View(slide);
+            return View();
         }
-
         [HttpPost]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int? ID)
         {
-            Slide slide = db.Slides.Find(id);
+            Slide slide = db.Slides.Find(ID);
             db.Slides.Remove(slide);
             db.SaveChanges();
+            ViewBag.Message = "Xoá thành công";
             return RedirectToAction("Index");
         }
 

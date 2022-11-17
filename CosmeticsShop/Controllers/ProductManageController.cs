@@ -1,4 +1,5 @@
 ﻿using CosmeticsShop.Models;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using PagedList;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +22,6 @@ namespace CosmeticsShop.Controllers
             }
             return false;
         }
-        // GET: ProductManage
         public ActionResult Index(string keyword = "", int? page = 1)
         {
             if (CheckRole("Admin"))
@@ -81,6 +81,7 @@ namespace CosmeticsShop.Controllers
             productUpdate.Name = product.Name;
             productUpdate.Price = product.Price;
             productUpdate.Quantity = product.Quantity;
+            productUpdate.Type = product.Type;
             productUpdate.CategoryID = product.CategoryID;
             productUpdate.Description = product.Description;
 
@@ -181,27 +182,18 @@ namespace CosmeticsShop.Controllers
             ViewBag.Message = "Thêm thành công";
             return View("Details", product);
         }
-        public ActionResult Delete(int? id)
+       
+        public ActionResult Delete()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
+            return View();
         }
-
         [HttpPost]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int? ID)
         {
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Find(ID);
             db.Products.Remove(product);
             db.SaveChanges();
-            ViewBag.Message = "Cập nhật thành công";
+            ViewBag.Message = "Xoá thành công";
             return RedirectToAction("Index");
         }
     }
