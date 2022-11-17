@@ -101,6 +101,12 @@ namespace CosmeticsShop.Controllers
             List<ItemCart> itemCarts = Session["Cart"] as List<ItemCart>;
             return Json(new { Total = itemCarts.Sum(x => x.ProductPrice * x.Quantity).ToString("#,##") }, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult RemoveAll()
+        {
+            Session["Cart"] = null;
+            return View("Checkout");
+        }
         public ActionResult Checkout()
         {
             return View();
