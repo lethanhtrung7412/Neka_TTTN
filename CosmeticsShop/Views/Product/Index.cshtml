@@ -63,27 +63,28 @@
             <!--categories-->
             <div class=" categories-controls">
                 <div class="row">
-                   <div class="col-lg-12">
-                       <div class="categories-filter">
-                           <div class="cf-left">
-                               <form action="#">
-                                   <select class="sort" onchange="javascrip: location.href = this.value">
-                                       <option value="">Chọn</option>
+                    <div class="col-lg-12">
+                        <div class="categories-filter">
+                            <div class="cf-left">
+                                <form action="#">
+                                    <select class="sort" onchange="javascrip: location.href = this.value">
+                                        <option value="">Chọn</option>
 
-                                       @foreach (var item in categories)
-                                       {
-                                           <option value="/Product/Index?CategoryID=@item.ID">@item.Name</option>
+                                        @foreach (var item in categories)
+                                        {
+                                            <option value="/Product/Index?CategoryID=@item.ID">@item.Name</option>
 
-                                       }
+                                        }
 
-                                   </select>
-                               </form>
-                           </div>
-                       </div>
-                   </div>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
+            <!-- end categories-->
         </div>
         <div class="row">
             @if (products.Count > 0)

@@ -3,24 +3,41 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/app.css">
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css" />
+</head>
 
+<body>
+    <div id="app">
+        <section id="content-types" class="mt-4 px-5">
+            <div class="row">
+                @{
+                    foreach (var slide in Model)
+                    {
 
-<div class="container h-100 pt-5">
-    <div class="list-group">
-        @{
-            foreach (var slide in Model)
-            {
-                <a href="/Slide/Details/@slide.ID" class="list-group-item list-group-item-action"  style="color: #1E1E1E">
-                    <div class="d-flex flex-row justify-content-between align-items-center">
-                        <p style="font-weight: 600" class="text-info">@slide.Name</p>
-                        <div class="d-flex flex-column">
-                            <p >Người tạo: @slide.User.Name</p>
-                            <p >Đăng ngày: @slide.CreatedDate</p>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="card">
+                                <div class="card-content">
+                                    <img style="object-fit:cover" class="card-img-top img-fluid" src="~/Content/images/@slide.Image"
+                                         alt="Card image cap" />
+                                    <div class="card-body">
+                                        <h4 class="card-title">@slide.ID</h4>
+                                        <p class="card-text">
+                                            @slide.Name
+                                        </p>
+                                        <p class="card-text">
+                                            @slide.User.Name
+                                        </p>
+                                        <a href="/Slide/Details/@slide.ID" class="btn btn-primary block">Xem thêm</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
-
-            }
-        }
+                    }
+                }
+            </div>
+        </section>
     </div>
-</div>
+</body>

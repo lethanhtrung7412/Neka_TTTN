@@ -110,7 +110,7 @@ namespace CosmeticsShop.Controllers
             var product = new List<Product>();
             ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
             var s = string.Join(" ", data);
-            if (s.Contains("căng") && s.Contains("red") && s.Contains("ngứa"))
+            if (s.Contains("căng") && s.Contains("đỏ") && s.Contains("ngứa"))
             {
                 product = db.Products.Where(x => x.Type == "Combination").ToList();
                 Session["Suggest"] = product;
