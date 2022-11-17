@@ -110,19 +110,19 @@ namespace CosmeticsShop.Controllers
             var product = new List<Product>();
             ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
             var s = string.Join(" ", data);
-            if (s.Contains("shiny") && s.Contains("red") && s.Contains("itchy"))
+            if (s.Contains("căng") && s.Contains("red") && s.Contains("ngứa"))
             {
                 product = db.Products.Where(x => x.Type == "Combination").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Bạn có làn da hỗn hợp." }, JsonRequestBehavior.AllowGet);
             }
-            else if (s.Contains("shiny"))
+            else if (s.Contains("căng"))
             {
                 product = db.Products.Where(x => x.Type == "Oily").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Làn da của bạn là da dầu." }, JsonRequestBehavior.AllowGet);
             }
-            else if (s.Contains("itchy"))
+            else if (s.Contains("ngứa"))
             {
                 product = db.Products.Where(x => x.Type == "Dry").ToList();
                 Session["Suggest"] = product;
