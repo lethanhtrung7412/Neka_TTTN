@@ -2,34 +2,29 @@
     ViewBag.Title = "Đăng ký";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title</title>
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="~/Content/Admin/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Content/Admin/css/adminlte.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Template admin -->
     <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css">
-
 </head>
-<body>
-    <section class="page-add mb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="page-breadcrumb">
-                        <h4>Gợi ý sản phẩm<span>.</span></h4>
-                        <a href="#">Trang chủ</a>
-                        <a class="active" href="#">Gợi ý sản phẩm</a>
-                    </div>
+<section class="page-add mb-2 px-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-breadcrumb">
+                    <h2>Gợi ý<span>.</span></h2>
+                    <a href="#">Trang chủ</a>
+
+                    <a class="active" href="#">Gợi ý</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<body>
+    
     <div class="quiz-containera d-flex justify-content-center align-items-center" id="quiz">
         <div class="quiz-header">
             <h2 id="questions">questions</h2>
@@ -171,6 +166,5 @@
         })
     </script>
 </body>
-</html>
 
 

@@ -13,7 +13,7 @@ namespace CosmeticsShop.Controllers
         ShoppingEntities db = new ShoppingEntities();
         public ActionResult Index()
         {
-            var news = db.Slides.AsNoTracking().OrderByDescending(x => x.DisplayOrder);
+            var news = db.Slides.AsNoTracking().OrderBy(x => x.DisplayOrder);
             return View(news);
         }
         public ActionResult Details(int ID)

@@ -26,7 +26,6 @@ namespace CosmeticsShop.Controllers
             }
             return false;
         }
-        // GET: 
         public ActionResult Index(string keyword = "")
         {
             if (CheckRole("Admin"))
@@ -57,15 +56,12 @@ namespace CosmeticsShop.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        // GET: /Create
         public ActionResult Create()
         {
             ViewBag.CreatedBy = new SelectList(db.Users, "ID", "Name");
             return View();
         }
-
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(Slide slide, HttpPostedFileBase[] ImageUpload)
         {
             for (int i = 0; i < ImageUpload.Length; i++)
@@ -99,7 +95,6 @@ namespace CosmeticsShop.Controllers
             ViewBag.Message = "Thêm thành công";
             return View("Details", slide);
         }
-
         public ActionResult Details(int ID)
         {
             if (CheckRole("Admin"))
@@ -122,7 +117,7 @@ namespace CosmeticsShop.Controllers
         {
             return RedirectToAction("Index");
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(Slide slide, HttpPostedFileBase[] ImageUpload)
         {
             Slide slideUpdate = db.Slides.Find(slide.ID);
@@ -158,7 +153,6 @@ namespace CosmeticsShop.Controllers
             ViewBag.Message = "Cập nhật thành công";
             return View("Details", slideUpdate);
         }
-
         public ActionResult Delete()
         {
             return View();
@@ -172,7 +166,6 @@ namespace CosmeticsShop.Controllers
             ViewBag.Message = "Xoá thành công";
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
