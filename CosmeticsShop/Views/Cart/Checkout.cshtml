@@ -16,9 +16,27 @@
         $('.qty').on('keydown', function (e) {
             e.preventDefault();
         });
+        //var qtyVal = $('.qty').val();
+        //$('.inc').click(function () {
+        //    var qtyVal = parseInt($('.qty').val());
+        //    console.log(qtyVal)
+        //    $('.qty').val(qtyVal)
+        //    $('.qty').trigger("change")
+        //})
+        
+        
+
+        //$('.dec').click(function () {
+        //    var qtyVal = parseInt($('.qty').val());
+
+        //    console.log(typeof qtyVal)
+        //    $('.qty').val(qtyVal)
+        //    $('.qty').trigger("change")
+        //})
         $('.qty').change(function () {
             var ID = $(this).data("id");
             var Quantity = $(this).val();
+
             $.ajax({
                 url: '/Cart/UpdateQuantity',
                 data: {
@@ -81,6 +99,7 @@
                 },
             });
         })
+        
     });
 </script>
 <section class="page-add">
@@ -143,7 +162,7 @@
                                     </div>
                                 </td>
                                 <td class="total" id=" @item.ProductID">@((item.ProductPrice * item.Quantity).ToString("#,##"))₫</td>
-                                <td class="product-close">x</td>
+                                <td class="product-close" data-id="@item.ProductID">x</td>
                             </tr>
                         </tbody>
                     </table>

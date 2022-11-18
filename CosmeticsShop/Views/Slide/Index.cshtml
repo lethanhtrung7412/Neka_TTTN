@@ -5,8 +5,8 @@
 }
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/Content/Admin/assets/css/app.css">
-    <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css" />
+    @*<link rel="stylesheet" href="~/Content/Admin/assets/css/app.css">
+    <link rel="stylesheet" href="~/Content/Admin/assets/css/bootstrap.css" />*@
 </head>
 <section class="page-add mb-2 px-3">
     <div class="container">
@@ -31,9 +31,8 @@
                 @{
                     foreach (var slide in Model)
                     {
-
-                        <div class="col-md-6 col-sm-12 col-lg-6">
-                            <div class="card">
+                        <div class="col-md-6 col-sm-12 col-lg-6 mb-2">
+                            <div class="card shadow-sm p-3 mb-5 bg-white rounded">
                                 <div class="card-content">
                                     <img style="object-fit:cover" class="card-img-top img-fluid" src="~/Content/images/@slide.Image"
                                          alt="Card image cap" />
@@ -45,7 +44,7 @@
                                         <p class="card-text">
                                             @slide.User.Name
                                         </p>
-                                        <a href="/Slide/Details/@slide.ID" class="btn btn-primary block">Xem thêm</a>
+                                        <a href="/Slide/Details/@slide.ID" class="btn btn-secondary block">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
