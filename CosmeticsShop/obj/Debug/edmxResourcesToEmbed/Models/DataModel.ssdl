@@ -70,7 +70,7 @@
     <Property Name="Image" Type="nvarchar" MaxLength="500" />
     <Property Name="DisplayOrder" Type="int" />
     <Property Name="Url" Type="nvarchar" MaxLength="256" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="Status" Type="bit" />
