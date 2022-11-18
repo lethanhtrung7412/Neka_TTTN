@@ -74,7 +74,7 @@ namespace CosmeticsShop.Controllers
             ViewBag.CategoryList = db.Categories.ToList();
             return View(product);
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(Product product, HttpPostedFileBase[] ImageUpload)
         {
             Product productUpdate = db.Products.Find(product.ID);
@@ -138,7 +138,7 @@ namespace CosmeticsShop.Controllers
             ViewBag.CategoryList = db.Categories.Where(x => x.IsActive == true).ToList();
             return View();
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Add(Product product, HttpPostedFileBase[] ImageUpload)
         {
             for (int i = 0; i < ImageUpload.Length; i++)

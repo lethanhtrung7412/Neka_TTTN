@@ -85,7 +85,7 @@
                         <h5> @Model.Price.Value.ToString("#,##")₫</h5>
 
                     </div>
-                    <p>@Model.Description</p>
+                    <div>@Html.Raw(Model.Description)</div>
                     <ul class="tags">
                         <li>
                             <span>Danh mục :</span>

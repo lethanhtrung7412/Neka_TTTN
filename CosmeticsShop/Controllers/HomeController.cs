@@ -112,25 +112,25 @@ namespace CosmeticsShop.Controllers
             var s = string.Join(" ", data);
             if (s.Contains("căng") && s.Contains("đỏ") && s.Contains("ngứa"))
             {
-                product = db.Products.Where(x => x.Type == "Combination").ToList();
+                product = db.Products.Where(x => x.Type == "Hỗn hợp").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Bạn có làn da hỗn hợp." }, JsonRequestBehavior.AllowGet);
             }
             else if (s.Contains("căng"))
             {
-                product = db.Products.Where(x => x.Type == "Oily").ToList();
+                product = db.Products.Where(x => x.Type == "Dầu").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Làn da của bạn là da dầu." }, JsonRequestBehavior.AllowGet);
             }
             else if (s.Contains("ngứa"))
             {
-                product = db.Products.Where(x => x.Type == "Dry").ToList();
+                product = db.Products.Where(x => x.Type == "Khô").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Bạn có một làn da khô" }, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                product = db.Products.Where(x => x.Type == "Sensitive").ToList();
+                product = db.Products.Where(x => x.Type == "Nhạy cảm").ToList();
                 Session["Suggest"] = product;
                 return Json(new { message = "Bạn có làn da nhạy cảm." }, JsonRequestBehavior.AllowGet);
             }
