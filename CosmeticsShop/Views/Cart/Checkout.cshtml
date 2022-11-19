@@ -1,8 +1,6 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
-
     List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
 }
 <style>
@@ -16,27 +14,9 @@
         $('.qty').on('keydown', function (e) {
             e.preventDefault();
         });
-        //var qtyVal = $('.qty').val();
-        //$('.inc').click(function () {
-        //    var qtyVal = parseInt($('.qty').val());
-        //    console.log(qtyVal)
-        //    $('.qty').val(qtyVal)
-        //    $('.qty').trigger("change")
-        //})
-        
-        
-
-        //$('.dec').click(function () {
-        //    var qtyVal = parseInt($('.qty').val());
-
-        //    console.log(typeof qtyVal)
-        //    $('.qty').val(qtyVal)
-        //    $('.qty').trigger("change")
-        //})
         $('.qty').change(function () {
             var ID = $(this).data("id");
             var Quantity = $(this).val();
-
             $.ajax({
                 url: '/Cart/UpdateQuantity',
                 data: {
@@ -48,7 +28,6 @@
                 success: function (response) {
                     if (response.update == true) {
                         $.notify("Cập nhật thành công!", "success");
-
                         $.ajax({
                             url: '/Cart/GetSubTotal',
                             data: {
@@ -60,7 +39,6 @@
                                 $("#" + ID).html(response.SubTotal + "₫")
                             },
                         });
-
                         $.ajax({
                             url: '/Cart/GetTotal',
                             data: {
@@ -72,7 +50,6 @@
                                 $(".total-cart").html("Tổng: " + response.Total + "₫")
                             },
                         });
-
                         $.ajax({
                             url: '/Cart/GetTotalCart',
                             type: 'GET',
@@ -99,17 +76,16 @@
                 },
             });
         })
-        
+
     });
 </script>
 <section class="page-add">
-    <div class="container h-100">
+    <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-breadcrumb">
                     <h2>Giỏ hàng<span>.</span></h2>
                     <a href="#">Trang chủ</a>
-
                     <a class="active" href="#">Giỏ hàng</a>
                 </div>
             </div>
@@ -120,7 +96,7 @@
                     {
                         <div class="page-breadcrumb">
                             <a href="/User/CheckoutOrder"><h3>Tất cả đơn hàng<span>.</span></h3></a>
-                            
+
                         </div>
                     }
                 }
@@ -150,7 +126,6 @@
                             <tr>
                                 <td class="product-col">
                                     <a href="/Product/Details/@item.ProductID"> <img src="~/Content/images/@item.ProductImage" alt=""></a>
-
                                     <div class="p-title">
                                         <h5>@item.ProductName</h5>
                                     </div>
@@ -166,38 +141,36 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="cart-btn">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="coupon-input">
-                                    <h4>Tổng hóa đơn</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
-                                <h4 class="total-cart pr-4">@itemCarts.Sum(x => x.Quantity * x.ProductPrice).ToString("#,##")₫</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-btn">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="coupon-input">
-                                    <input type="text" placeholder="Enter coupon code">
-                                </div>
-                            </div>
-                            <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
-                                <div class="site-btn clear-btn">
-                                    <a href="/Cart/RemoveAll" style="color: #1E1e1e;" class="">Clear Cart</a>
-
-                                </div>
-                                <div class="site-btn update-btn">
-                                    <a href="/Cart/Checkout" style="color: #1E1e1e;" class="">Update Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 }
+                <div class="cart-btn">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="coupon-input">
+                                <h4>Tổng hóa đơn</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
+                            <h4 class="total-cart pr-4">@itemCarts.Sum(x => x.Quantity * x.ProductPrice).ToString("#,##")₫</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-btn">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Enter coupon code">
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
+                            <div class="site-btn clear-btn">
+                                <a href="/Cart/RemoveAll" style="color: #1E1e1e;" class="">Clear Cart</a>
+                            </div>
+                            <div class="site-btn update-btn">
+                                <a href="/Cart/Checkout" style="color: #1E1e1e;" class="">Update Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 if (Session["User"] == null)
                 {
                     <div class="row">
@@ -206,7 +179,6 @@
                                 <form name="payment" action="/Home/SignIn">
                                     <button type="submit">BẠN CẦN PHẢI ĐĂNG NHẬP TRƯỚC KHI THANH TOÁN</button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
