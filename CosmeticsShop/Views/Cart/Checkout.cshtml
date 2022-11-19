@@ -166,39 +166,38 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="cart-btn">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="coupon-input">
+                                    <h4>Tổng hóa đơn</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
+                                <h4 class="total-cart pr-4">@itemCarts.Sum(x => x.Quantity * x.ProductPrice).ToString("#,##")₫</h4>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-btn">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="coupon-input">
+                                    <input type="text" placeholder="Enter coupon code">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
+                                <div class="site-btn clear-btn">
+                                    <a href="/Cart/RemoveAll" style="color: #1E1e1e;" class="">Clear Cart</a>
+
+                                </div>
+                                <div class="site-btn update-btn">
+                                    <a href="/Cart/Checkout" style="color: #1E1e1e;" class="">Update Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 }
-                <div class="cart-btn">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="coupon-input">
-                                <h4>Tổng hóa đơn</h4>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
-                            <h4 class="total-cart pr-4">@itemCarts.Sum(x => x.Quantity * x.ProductPrice).ToString("#,##")₫</h4>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-btn">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="coupon-input">
-                                <input type="text" placeholder="Enter coupon code">
-                            </div>
-                        </div>
-                        <div class="col-lg-5 offset-lg-1 text-left text-lg-right">
-                            <div class="site-btn clear-btn">
-                                <a href="/Cart/RemoveAll" style="color: #1E1e1e;" class="">Clear Cart</a>
-
-                            </div>
-                            <div class="site-btn update-btn">
-                                <a href="/Cart/Checkout" style="color: #1E1e1e;" class="">Update Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 if (Session["User"] == null)
                 {
                     <div class="row">

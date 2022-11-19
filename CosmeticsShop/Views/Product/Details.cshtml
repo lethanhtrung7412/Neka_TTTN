@@ -3,7 +3,7 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_ProductLayout.cshtml";
 
-
+    List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
     List<CosmeticsShop.Models.Category> categories = ViewBag.ListCategory as List<CosmeticsShop.Models.Category>;
 }
 
@@ -94,10 +94,14 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="product-quantity">
+                        <div class="pro-qty">
+                            <input type="number" class="qty" value="1">
+                        </div>
+                    </div>
                     <a href="#" class="item_add primary-btn pc-btn" data-id="@Model.ID">Chọn mua</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
