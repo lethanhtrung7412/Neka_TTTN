@@ -135,5 +135,10 @@ namespace CosmeticsShop.Controllers
                 return Json(new { message = "Bạn có làn da nhạy cảm." }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
