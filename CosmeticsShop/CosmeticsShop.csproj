@@ -3786,62 +3786,12 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\images\1.jpg" />
-    <Content Include="Content\images\10.jpg" />
-    <Content Include="Content\images\11.jpg" />
-    <Content Include="Content\images\12.jpg" />
-    <Content Include="Content\images\13.jpg" />
-    <Content Include="Content\images\14.jpg" />
-    <Content Include="Content\images\2.jpg" />
-    <Content Include="Content\images\3.jpg" />
-    <Content Include="Content\images\6.jpg" />
-    <Content Include="Content\images\9.jpg" />
     <Content Include="Content\images\avatar.jpg" />
-    <Content Include="Content\images\banner.jpg" />
     <Content Include="Content\images\cart.png" />
-    <Content Include="Content\images\ce.jpg" />
-    <Content Include="Content\images\ce1.jpg" />
-    <Content Include="Content\images\ce2.jpg" />
     <Content Include="Content\images\check.png" />
-    <Content Include="Content\images\img-sprite-1.png" />
-    <Content Include="Content\images\img-sprite.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\me.jpg" />
-    <Content Include="Content\images\pi.png" />
-    <Content Include="Content\images\pi1.png" />
-    <Content Include="Content\images\pi10.png" />
-    <Content Include="Content\images\pi11.png" />
-    <Content Include="Content\images\pi12.png" />
-    <Content Include="Content\images\pi2.png" />
-    <Content Include="Content\images\pi3.png" />
-    <Content Include="Content\images\pi4.png" />
-    <Content Include="Content\images\pi5.png" />
-    <Content Include="Content\images\pi6.png" />
-    <Content Include="Content\images\pi7.png" />
-    <Content Include="Content\images\pi8.png" />
-    <Content Include="Content\images\pi9.png" />
-    <Content Include="Content\images\pr.jpg" />
-    <Content Include="Content\images\pr1.jpg" />
-    <Content Include="Content\images\pr2.jpg" />
-    <Content Include="Content\images\pr3.jpg" />
     <Content Include="Content\images\search.png" />
-    <Content Include="Content\images\si.jpg" />
-    <Content Include="Content\images\si1.jpg" />
-    <Content Include="Content\images\si2.jpg" />
-    <Content Include="Content\images\son.jpg" />
-    <Content Include="Content\images\source.jpg" />
-    <Content Include="Content\images\t1.jpg" />
-    <Content Include="Content\images\t10.jpg" />
-    <Content Include="Content\images\t11.jpg" />
-    <Content Include="Content\images\t12.jpg" />
-    <Content Include="Content\images\t2.jpg" />
-    <Content Include="Content\images\t3.jpg" />
-    <Content Include="Content\images\t4.jpg" />
-    <Content Include="Content\images\t5.jpg" />
-    <Content Include="Content\images\t6.jpg" />
-    <Content Include="Content\images\t7.jpg" />
-    <Content Include="Content\images\t8.jpg" />
-    <Content Include="Content\images\t9.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\chatbox.js" />
     <Content Include="Content\js\imagezoom.js" />
@@ -3931,6 +3881,7 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\ChatboxAdmin.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\CroissantOne-Regular.ttf" />
@@ -4108,6 +4059,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\textarea.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
@@ -4223,6 +4175,7 @@
     <Content Include="Scripts\tinymce\themes\silver\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\ChatboxUser.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
