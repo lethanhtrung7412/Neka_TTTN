@@ -81,7 +81,6 @@
             <div class="col-md-7 product-content">
                 <div class="single-para simpleCart_shelfItem">
                     <h2>@Model.Name</h2>
-                    <h4>Dành cho da @Model.Type</h4>
                     <div class="pc-meta">
                         <h5> @Model.Price.Value.ToString("#,##")₫</h5>
                         <h4> Đã bán: @Model.PurchasedCount</h4>
@@ -90,7 +89,7 @@
                     <ul class="tags">
                         <li>
                             <span>Danh mục :</span>
-                            <a href="/Product/Index?CategoryID=@Model.Category.ID">
+                            <a style="color:brown" href="/Product/Index?CategoryID=@Model.Category.ID">
                                 @Model.Category.Name
                             </a>
                         </li>

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @{
-    List<CosmeticsShop.Models.Category> categoryies = ViewBag.CategoryList as List<CosmeticsShop.Models.Category>;
+    List<CosmeticsShop.Models.Category> categories = ViewBag.CategoryList as List<CosmeticsShop.Models.Category>;
 }
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <label>Danh mục</label>
                                 <select name="CategoryID" class="form-control">
-                                    @foreach (var item in categoryies)
+                                    @foreach (var item in categories)
                                     {
                                         if (item.ID == Model.CategoryID)
                                         {

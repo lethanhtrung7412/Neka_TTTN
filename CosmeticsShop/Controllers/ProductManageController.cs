@@ -22,7 +22,7 @@ namespace CosmeticsShop.Controllers
             }
             return false;
         }
-        public ActionResult Index(string keyword = "", int? page = 1)
+        public ActionResult Index(int CategoryID = 0,  string keyword = "", int? page = 1)
         {
             if (CheckRole("Admin"))
             {
@@ -37,6 +37,11 @@ namespace CosmeticsShop.Controllers
             if (keyword != "")
             {
                 products = db.Products.Where(x => x.Name.Contains(keyword)).OrderBy(x => x.ID).ToList();
+            }
+            if (CategoryID != 0)
+            {
+                ViewBag.NamePage = "Category " + db.Categories.Find(CategoryID).Name;
+                ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.CategoryID == CategoryID).ToList();
             }
             else
             {

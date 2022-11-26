@@ -148,15 +148,15 @@ namespace CosmeticsShop.Controllers
             ExcelPackage pck = new ExcelPackage();
             ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Report");
 
-            ws.Cells["A2"].Value = "Export by";
+            ws.Cells["A2"].Value = "Được tạo bởi: ";
             ws.Cells["B2"].Value = user.Name;
 
-            ws.Cells["A3"].Value = "Date";
+            ws.Cells["A3"].Value = "Ngày";
             ws.Cells["B3"].Value = DateTime.Now.ToShortDateString();
 
-            ws.Cells["A6"].Value = "Product ID";
-            ws.Cells["B6"].Value = "Name";
-            ws.Cells["C6"].Value = "Purchased Count";
+            ws.Cells["A6"].Value = "Mã sản phẩm";
+            ws.Cells["B6"].Value = "Tên";
+            ws.Cells["C6"].Value = "Số lượng đã bán";
 
             int rowStart = 7;
             foreach (var item in products)
