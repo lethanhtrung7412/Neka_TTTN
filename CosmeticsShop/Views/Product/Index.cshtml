@@ -57,32 +57,60 @@
 <!--content-->
 <div>
     <div class="container">
-        <div class="col-md-3 product-bottom">
-            <h3 class="cate" style="color: #1E1E1E">Danh mục</h3>
-            <!--categories-->
-            <div class="categories-controls">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="categories-filter">
-                            <div class="cf-left">
-                                <form action="#">
-                                    <select class="sort" onchange="javascrip: location.href = this.value">
-                                        <option value="">Chọn danh mục</option>
+        <div class="d-flex justify-content-between">
+            <div class="col-md-3 product-bottom">
+                <h3 class="cate" style="color: #1E1E1E">Danh mục</h3>
+                <!--categories-->
+                <div class="categories-controls">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="categories-filter">
+                                <div class="cf-left">
+                                    <form action="#">
+                                        <select class="sort" onchange="javascrip: location.href = this.value">
+                                            <option value="">Chọn danh mục</option>
 
-                                        @foreach (var item in categories)
-                                        {
-                                            <option value="/Product/Index?CategoryID=@item.ID">@item.Name</option>
+                                            @foreach (var item in categories)
+                                            {
+                                                <option value="/Product/Index?CategoryID=@item.ID">@item.Name</option>
 
-                                        }
-                                    </select>
-                                </form>
+                                            }
+                                        </select>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+
+                <!-- end categories-->
             </div>
-            <!-- end categories-->
+            <div class="col-md-3 product-bottom">
+                <h3 class="cate" style="color: #1E1E1E">Giá</h3>
+                <!--categories-->
+                <div class="categories-controls">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="categories-filter">
+                                <div class="cf-left">
+                                    <form action="#">
+                                        <select class="sort" onchange="javascrip: location.href = this.value">
+                                            <option value="">Chọn</option>
+                                            <option value="/Product/Index?SortPrice=1">Nhỏ đến lớn</option>
+                                            <option value="/Product/Index?SortPrice=2">Lớn đến nhỏ</option>
+
+
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end categories-->
+            </div>
         </div>
         <div class="row">
             @if (products.Count > 0)
