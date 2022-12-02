@@ -13,7 +13,7 @@ namespace CosmeticsShop.Controllers
     {
         ShoppingEntities db = new ShoppingEntities();
         // GET: Product
-        public ActionResult Index(int CategoryID = 0, string keyword = "", int SortLower = 0)
+        public ActionResult Index(int CategoryID = 0, string keyword = "", int SortPrice = 0)
         {
             ViewBag.ListCategory = db.Categories.Where(x => x.IsActive == true).ToList();
             if (keyword != "")
@@ -26,13 +26,15 @@ namespace CosmeticsShop.Controllers
             {
                 ViewBag.NamePage = "Category " + db.Categories.Find(CategoryID).Name;
                 ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true && x.CategoryID == CategoryID).ToList();
+                return View();
             }
-            if (SortLower == 1)
+            if (SortPrice == 1)
             {
                 ViewBag.NamePage = "Lower to Higher Price";
                 ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true).OrderBy(x => x.Price).ToList();
+                return View();
             }
-            if (SortLower == 2)
+            if (SortPrice == 2)
             {
                 ViewBag.NamePage = "Higher to Lower Price";
                 ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true).OrderByDescending(x => x.Price).ToList();
