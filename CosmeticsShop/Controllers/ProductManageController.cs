@@ -49,7 +49,7 @@ namespace CosmeticsShop.Controllers
             }
             //Phân trang
             if (page == null) page = 1;
-            int pageSize = 5;
+            int pageSize = 4;
             int pageNumber = (page ?? 1);
             PagedList<Product> models = new PagedList<Product>(products.AsQueryable(), pageNumber, pageSize);
 

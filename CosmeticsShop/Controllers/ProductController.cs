@@ -47,20 +47,6 @@ namespace CosmeticsShop.Controllers
             return View();
         }
 
-        //public ActionResult Sort(int SortLower = 0)
-        //{
-        //    if (SortLower == 1)
-        //    {
-        //        ViewBag.NamePage = "Lower to Higher Price";
-        //        ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true).OrderBy(x => x.Price).ToList();
-        //    }
-        //    if (SortLower == 2)
-        //    {
-        //        ViewBag.NamePage = "Higher to Lower Price";
-        //        ViewBag.ListProduct = db.Products.Where(x => x.IsActive == true).OrderByDescending(x => x.Price).ToList();
-        //    }
-        //    return RedirectToAction("Index");
-        //}
         public ActionResult Details(int ID)
         {
             Product product = db.Products.Find(ID);

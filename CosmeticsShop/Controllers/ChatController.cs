@@ -69,6 +69,7 @@ namespace CosmeticsShop.Controllers
                 return View(listMessage);
 
             }
+            ViewBag.Avatar = db.Users.Find(WithUserID).Avatar;
             ViewBag.UserFullName = db.Users.Find(WithUserID).Name;
             return View();
         }
